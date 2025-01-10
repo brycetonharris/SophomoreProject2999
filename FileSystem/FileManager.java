@@ -95,9 +95,9 @@ public class FileManager {
 				writeString = writeString + String.valueOf(Clickers) + "|";
 			}
 			if(Grandpas==-1) {
-				writeString = writeString + split[2] + "|";
+				writeString = writeString + split[2];
 			} else {
-				writeString = writeString + String.valueOf(Grandpas) + "|";
+				writeString = writeString + String.valueOf(Grandpas);
 			}
 			try {
 				FileWriter write = new FileWriter(f);
