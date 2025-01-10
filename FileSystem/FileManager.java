@@ -125,6 +125,9 @@ public class FileManager {
 			System.out.println("File by name does not exist.");
 		}
 	}
+	/**
+	 * @return Returns the number of saves that exist, really only to measure how large any save select screen needs to be
+	 */
 	public static int numOfSaves() {
 		File d = new File("src/Saves");
 		return d.listFiles().length;
