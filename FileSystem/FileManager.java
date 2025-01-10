@@ -10,6 +10,12 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 public class FileManager {
+	/**
+	 * @param fileName The name of the file to be created, minus the .txt
+	 * @param Points The initial number of points, or "clicks"
+	 * @param Clickers The initial number of clickers
+	 * @param Grandpas The initial number of some arbitrary next clicker upgrade
+	 */
 	public static void newSave(String fileName,int Points,int Clickers,int Grandpas) {
 		File f = new File("src/Saves/"+fileName+".txt");
 		if(!f.exists()) {
@@ -26,8 +32,11 @@ public class FileManager {
 			System.out.println("File by name already exists.");
 		}
 	}
-	public static void deleteSave(String name) {
-		File f = new File("src/Saves/"+name+".txt");
+	/**
+	 * @param fileName The name of the file to be deleted, minus the .txt
+	 */
+	public static void deleteSave(String fileName) {
+		File f = new File("src/Saves/"+fileName+".txt");
 		if(f.exists()) {
 			f.delete();
 			System.out.println("File deleted.");
@@ -36,6 +45,7 @@ public class FileManager {
 		}
 	}
 	/**
+	 * @param fileName The name of the file to format data from, minus the .txt
 	 * @return A dictionary object easily readable using Java's builtin Dictionary class
 	 */
 	public static Dictionary<String,Integer> dictData(String fileName) {
@@ -58,7 +68,10 @@ public class FileManager {
 		}
 	}
 	/**
-	 * Use -1 to leave a data point unaltered
+	 * @param fileName The name of the file to be updated, minus the .txt
+	 * @param Points The number of points, or "clicks", enter -1 to leave unaltered
+	 * @param Clickers The number of clickers, enter -1 to leave unaltered
+	 * @param Grandpas The number of some arbitrary upgrade name, enter -1 to leave unaltered
 	 */
 	public static void updateData(String fileName,int Points,int Clickers,int Grandpas) {
 		File f = new File("src/Saves/"+fileName+".txt");
