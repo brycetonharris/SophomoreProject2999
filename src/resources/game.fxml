@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.MainGame">
+    <Text text="Welcome to TreeClicker!" />
+    <Button text="Click Me" onAction="#handleButtonClick" />
+</StackPane>
