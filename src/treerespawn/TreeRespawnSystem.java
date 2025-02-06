@@ -64,4 +64,8 @@ public class TreeRespawnSystem {
 	        
 	    } 
 	}
+	
+	public String getCurrentState() {
+        return currentState;
+    }
 }
