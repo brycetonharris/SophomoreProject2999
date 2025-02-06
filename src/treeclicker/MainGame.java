@@ -3,40 +3,37 @@ package treeclicker;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import java.net.URL;
 
-public class MainGame extends Application{
-	
+import treeclicker.Controller;
+
+public class MainGame extends Application{	
+		
 	 public void start(Stage primaryStage) {    	
 	    	
 	        try {
 	        // Load the FXML file
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/game.fxml"));
 	        
-	        // code from UIapp.java
-	        Button btn = new Button();
-	        btn.setText("'Chop Tree Button'");
-	        btn.setOnAction(new EventHandler<ActionEvent>() {
-	 
-	            @Override
-	            public void handle(ActionEvent event) {
-	            	System.out.println("whatever function goes after this");
-	            }});
-	        // end of code from UIapp.java
-	        
 	        Parent root = loader.load();               
 
 	        Scene scene = new Scene(root, 600, 600);
-	        root.setStyle("-fx-background-color: aquamarine;");
-
+	        root.setStyle("-fx-background-color: aquamarine;"); 
+	        
+	        
+	        Controller controller = loader.getController();
+	        controller.onSceneReady(scene);
+	          
 	        URL imageURL = getClass().getResource("/resources/treeclicker logo.png");
 	        
             if (imageURL != null) {
@@ -66,9 +63,5 @@ public class MainGame extends Application{
 
 	}
 	
-	public void handleButtonClick() {
-		
-		System.out.println("Button clicked");
-	}
 
 }
