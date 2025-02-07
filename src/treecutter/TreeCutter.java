@@ -71,5 +71,11 @@ public class TreeCutter {
 		
 		
 	}
+	
+	public int getPoints() {
+		
+	    return points;
+	}
+
 
 }

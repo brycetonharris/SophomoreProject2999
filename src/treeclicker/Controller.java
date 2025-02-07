@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import treerespawn.TreeRespawnSystem;
+import treecutter.TreeCutter;
 
 public class Controller {
     
@@ -24,8 +25,10 @@ public class Controller {
     @FXML
     private ImageView axeImage;
 
-    private int points = 0;
+   
     private TreeRespawnSystem treeRespawnSystem = new TreeRespawnSystem();
+    private TreeCutter treeCutter = new TreeCutter(1.0, "Axe"); // Manages points & tools
+
 
     @FXML
     public void initialize() {
@@ -45,8 +48,10 @@ public class Controller {
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"
         if (treeRespawnSystem.getCurrentState().equals("full")) {
-            points += 1;
-            pointsLabel.setText("Points: " + points);
+            int pointsEarned = (int) treeCutter.getDamage();
+            treeCutter.earnPoints(pointsEarned);
+            
+            pointsLabel.setText("Points: " + treeCutter.getPoints());
 
             // Process the tree hit
             treeRespawnSystem.hitTree();
@@ -61,7 +66,7 @@ public class Controller {
             rotate.setAutoReverse(true);
             rotate.play();
 
-            System.out.println("Chopping tree.. Points: " + points);
+            System.out.println("Chopping tree.. Points: " + treeCutter.getPoints());
         } else if (treeRespawnSystem.getCurrentState().equals("stump")) {
             System.out.println("Tree is already a stump.");
             
