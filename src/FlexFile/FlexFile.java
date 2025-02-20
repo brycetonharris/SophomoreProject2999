@@ -1,4 +1,4 @@
-package Stuff;
+package FlexFile;
 
 import java.io.File;
 import java.nio.file.Files;
