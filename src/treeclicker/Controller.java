@@ -48,8 +48,11 @@ public class Controller {
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"
         if (treeRespawnSystem.getCurrentState().equals("full")) {
+        	String state = treeRespawnSystem.getCurrentState();
+        	int multiplier = 1;
+        	if(state.equals("cherry")){multiplier=2;}else if(state.equals("kauri")){multiplier=3;}else if(state.equals("gold")){multiplier=5;}
             int pointsEarned = (int) treeCutter.getDamage();
-            treeCutter.earnPoints(pointsEarned);
+            treeCutter.earnPoints(pointsEarned*multiplier);
             
             pointsLabel.setText("Points: " + treeCutter.getPoints());
 
@@ -84,6 +87,12 @@ public class Controller {
             // Set the stump image
             Image stumpImage = new Image(getClass().getResourceAsStream("/resources/treestump.png"));
             treeImageView.setImage(stumpImage);
+        } else if(treeRespawnSystem.getCurrentState().equals("cherry")) {
+        	Image fullTreeImage = new Image(getClass().getResourceAsStream("/resources/cherrytree.png"));
+        } else if(treeRespawnSystem.getCurrentState().equals("kauri")) {
+        	Image fullTreeImage = new Image(getClass().getResourceAsStream("/resources/kauritree.png"));
+        } else if(treeRespawnSystem.getCurrentState().equals("gold")) {
+        	Image fullTreeImage = new Image(getClass().getResourceAsStream("/resources/goldtree.png"));
         }
     }
 
