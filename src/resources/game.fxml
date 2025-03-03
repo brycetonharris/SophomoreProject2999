@@ -13,7 +13,7 @@
             <Image url="@treeclickerbg.png" />
          </image>
       </ImageView>
-      <Button layoutX="70.0" layoutY="241.0" mnemonicParsing="false" onAction="#Chop" text="CHOP" />
+      <Button layoutX="70.0" layoutY="241.0" mnemonicParsing="false" onAction="#Chop" opacity="0.5" text="CHOP" />
       <Button layoutX="462.0" layoutY="54.0" mnemonicParsing="false" text="MAIN MENU" />
       <Button layoutX="481.0" layoutY="316.0" mnemonicParsing="false" text="UPGRADES" />
       <ImageView fx:id="axeImage" fitHeight="150.0" fitWidth="200.0" layoutX="130.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
