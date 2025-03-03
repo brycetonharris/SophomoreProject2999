@@ -48,11 +48,8 @@ public class Controller {
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"
         if (treeRespawnSystem.getCurrentState().equals("full")) {
-        	String state = treeRespawnSystem.getCurrentState();
-        	int multiplier = 1;
-        	if(state.equals("cherry")){multiplier=2;}else if(state.equals("kauri")){multiplier=3;}else if(state.equals("gold")){multiplier=5;}
             int pointsEarned = (int) treeCutter.getDamage();
-            treeCutter.earnPoints(pointsEarned*multiplier);
+            treeCutter.earnPoints(pointsEarned);
             
             pointsLabel.setText("Points: " + treeCutter.getPoints());
 
