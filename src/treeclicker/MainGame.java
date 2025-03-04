@@ -14,7 +14,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 import java.net.URL;
-
 import treeclicker.Controller;
 
 public class MainGame extends Application{	
