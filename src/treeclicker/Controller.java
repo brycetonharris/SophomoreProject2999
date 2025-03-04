@@ -1,30 +1,47 @@
 package treeclicker;
 
+import java.io.IOException;
+
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import treerespawn.TreeRespawnSystem;
 import treecutter.TreeCutter;
 
 public class Controller {
+	
+	private Scene scene;
+	private Stage stage;
+	private Parent root;
     
     @FXML
     private ImageView backgroundImageView;  // New ImageView for the background
 
     @FXML
     private ImageView treeImageView;  // Separate ImageView for the tree
+    
+    @FXML
+    private ImageView lumberjackImageView;
 
     @FXML    
     private Label pointsLabel;
 
     @FXML
     private ImageView axeImage;
-
+    
+    @FXML
+    private Button upgradeButton;
    
     private TreeRespawnSystem treeRespawnSystem = new TreeRespawnSystem();
     private TreeCutter treeCutter = new TreeCutter(1.0, "Axe"); // Manages points & tools
@@ -33,17 +50,55 @@ public class Controller {
     @FXML
     public void initialize() {
         // Set up background (only once)
-        Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/treeclickerbg.png"));
-        backgroundImageView.setImage(backgroundImage);
+    	if (backgroundImageView != null) { 
+    		
+            Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/treeclickerbg.png"));
+            backgroundImageView.setImage(backgroundImage);
+            
+        } else {
+        	
+            System.out.println("backgroundImageView not injected!");
+        }
 
-        // Set initial tree image
-        updateTreeImage();
+        // Ensure treeImageView is injected
+        if (treeImageView == null) {
+        	
+            System.out.println("treeImageView is not injected!");
+            
+        } else {
+            
+            updateTreeImage();
+        }
     }
+
 
     public void onSceneReady(Scene scene) {
         backgroundImageView.fitWidthProperty().bind(scene.widthProperty());
         backgroundImageView.fitHeightProperty().bind(scene.heightProperty());
     }
+    
+    @FXML
+    public void switchtoGame(ActionEvent event) throws IOException {
+		
+	    root = FXMLLoader.load(getClass().getResource("/resources/game.fxml"));
+	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+	    scene = new Scene(root);
+	    stage.setScene(scene);
+	    stage.show();   
+		
+	}
+	
+    @FXML
+    public void switchtoStore(ActionEvent event) throws IOException {
+    	
+    	root = FXMLLoader.load(getClass().getResource("/resources/treestore.fxml"));
+	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+	    scene = new Scene(root);
+	    stage.setScene(scene);
+	    stage.show();	
+		
+	}
+    
 
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"

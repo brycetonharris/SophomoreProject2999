@@ -26,9 +26,8 @@ public class MainGame extends Application{
 	        
 	        Parent root = loader.load();               
 
-	        Scene scene = new Scene(root, 600, 600);
-	        root.setStyle("-fx-background-color: aquamarine;"); 
-	        
+	        Scene scene = new Scene(root, 800, 600);
+	        root.setStyle("-fx-background-color: aquamarine;"); 	        
 	        
 	        Controller controller = loader.getController();
 	        controller.onSceneReady(scene);
