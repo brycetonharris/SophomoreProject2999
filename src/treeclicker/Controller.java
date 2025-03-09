@@ -44,14 +44,18 @@ public class Controller {
     
     @FXML
     private Button upgradeButton;
+    
+    @FXML
+    private Label luckyCloverLabel;
+    
+    @FXML
+    private Label autoLJackLabel;
+    
+    @FXML
+    private Label energyDrinkLabel;
    
     private TreeRespawnSystem treeRespawnSystem = new TreeRespawnSystem();
     private TreeCutter treeCutter = new TreeCutter(1.0, "Axe"); // Manages points & tools
-    
-    private int luckyCloverCount = 0;
-    private int autoLJackCount = 0;
-    private int energyDrinkCount = 0;
-
 
     @FXML
     public void initialize() {
@@ -102,11 +106,26 @@ public class Controller {
         alert.showAndWait();
     }
     
+    public void updateItemCount() {
+        if (luckyCloverLabel != null) {
+            luckyCloverLabel.setText("Lucky Clover: " + Player.getInstance().getLuckyCloverCount());
+        }
+        if (autoLJackLabel != null) {
+            autoLJackLabel.setText("Auto Lumberjack: " + Player.getInstance().getAutoLJackCount());
+        }
+        if (energyDrinkLabel != null) {
+            energyDrinkLabel.setText("Energy Drink: " + Player.getInstance().getEnergyDrinkCount());
+        }
+    }
+
+    
     @FXML 
     private void handleLuckyCloverButtonClick() {
     	if (Player.getInstance().getPoints() >= 5) {
-    		Player.getInstance().earnPoints(-5);
-    		updatePointsDisplay();
+    		Player.getInstance().earnPoints(-5);  
+    		Player.getInstance().addLuckyClover();
+    		updatePointsDisplay();    		
+    		updateItemCount();
     	} else {
     		showNotEnoughPointsAlert();
     	}
@@ -116,6 +135,9 @@ public class Controller {
     private void handleAutoLJackButtonClick() {
     	if (Player.getInstance().getPoints() >= 6) {
     		Player.getInstance().earnPoints(-6);
+    		Player.getInstance().addAutoLJackCount();
+    		updatePointsDisplay();
+    		updateItemCount();
     	} else {
     		showNotEnoughPointsAlert();
     	}
@@ -125,6 +147,9 @@ public class Controller {
     private void handleEnergyDrinkButtonClick() {
     	if (Player.getInstance().getPoints() >= 7) {
     		Player.getInstance().earnPoints(-7);
+    		Player.getInstance().addEnergyDrinkCount();
+    		updatePointsDisplay();
+    		updateItemCount();
     	} else {
     		showNotEnoughPointsAlert();
     	}
@@ -138,6 +163,7 @@ public class Controller {
 	    
 	    Controller newController = loader.getController();
 	    newController.updatePointsDisplay();
+	    newController.updateItemCount();
 	    
 	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	    scene = new Scene(root);   
@@ -155,6 +181,7 @@ public class Controller {
 	    
 	    Controller newController = loader.getController();
 	    newController.updatePointsDisplay();
+	    newController.updateItemCount();
 	    
 	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	    scene = new Scene(root);   

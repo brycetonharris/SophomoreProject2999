@@ -30,9 +30,9 @@
       <Label fx:id="pointsLabel" layoutX="46.0" layoutY="57.0" prefHeight="18.0" prefWidth="135.0" text="POINTS: 0" />
       <VBox layoutX="236.0" prefHeight="200.0" prefWidth="100.0" spacing="60.0">
          <children>
-            <Label minWidth="100.0" text="Lucky Clovers: 0" VBox.vgrow="NEVER" />
-            <Label minWidth="100.0" text="Auto LJacks: 0" VBox.vgrow="NEVER" />
-            <Label minWidth="100.0" text="Energy drinks: 0" VBox.vgrow="NEVER" />
+            <Label fx:id="luckyCloverLabel" minWidth="100.0" text="Lucky Clovers: 0" VBox.vgrow="NEVER" />
+            <Label fx:id="autoLJackLabel" minWidth="100.0" text="Auto LJacks: 0" VBox.vgrow="NEVER" />
+            <Label fx:id="energyDrinkLabel" minWidth="100.0" text="Energy drinks: 0" VBox.vgrow="NEVER" />
          </children>
       </VBox>
    </children>

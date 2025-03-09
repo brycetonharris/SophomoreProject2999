@@ -8,6 +8,10 @@ public class Player {
 	
 	private int points = 0;
 	
+	private int luckyCloverCount = 0;
+    private int autoLJackCount = 0;
+    private int energyDrinkCount = 0;
+	
 	private TreeCutter treecutter;
 	
 	private Player() {
@@ -25,6 +29,29 @@ public class Player {
 		return instance;
 	}
 	
+	public int getLuckyCloverCount() {
+		return luckyCloverCount;
+	}
+	
+	public void addLuckyClover() {
+		luckyCloverCount++;
+	}
+	
+	public int getAutoLJackCount() {
+		return autoLJackCount;
+	}
+	
+	public void addAutoLJackCount() {
+		autoLJackCount++;
+	}
+	
+	public int getEnergyDrinkCount() {
+		return energyDrinkCount;
+	}
+	
+	public void addEnergyDrinkCount() {
+		energyDrinkCount++;
+	}
 	    // earn points method
 	public void earnPoints(int pointsEarned) {
 			
