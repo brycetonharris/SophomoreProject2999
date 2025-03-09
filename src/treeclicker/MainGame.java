@@ -9,10 +9,11 @@ import javafx.stage.Stage;
 import treeplayer.Player;
 
 import java.net.URL;
+/*
 import java.util.Timer;
 import java.util.TimerTask;
 import weather.Weather;
-
+*/
 public class MainGame extends Application{	
 		
 	 public void start(Stage primaryStage) {    	
@@ -41,7 +42,12 @@ public class MainGame extends Application{
                 System.out.println("Image not found!");
             }
 	
-		//timer
+		/* 
+		 * 
+		 * Temporarily commented out the game timer/weather logic from the main class 
+		 * to prevent ongoing bugs. Suggest refactoring this into dedicated classes for
+		 * better separation of concerns
+		 * //timer 
 	            Timer timer = new Timer();
 		        TimerTask task = new TimerTask() {
 		        	int Sec = 0;
@@ -94,7 +100,7 @@ public class MainGame extends Application{
 		        //Timer for the Game
 		        timer.scheduleAtFixedRate(task, 0, 1000);
 		        //Timer event for the weather
-		        timer.scheduleAtFixedRate(WeatherTime, 0, 150000);
+		        timer.scheduleAtFixedRate(WeatherTime, 0, 150000); */
 		
             //primaryStage.setFullScreen(true);
 
