@@ -7,6 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.net.URL;
+import java.util.Timer;
+import java.util.TimerTask;
+import weather.Weather;
 
 public class MainGame extends Application{	
 		
