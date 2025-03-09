@@ -1,12 +1,11 @@
 package treecutter;
 
 public class TreeCutter {
+	
 	// attributes.
 	private double damage = 1.0;
 	
-	private String cutter = "Axe";
-	
-	private int points = 0;
+	private String cutter = "Axe";	
 	
 	public TreeCutter(double damage, String cutter) {
 		
@@ -16,24 +15,35 @@ public class TreeCutter {
 		
 	}
 	
+	public TreeCutter(String cutter) {
+		
+		this.damage = 1.0;
+		
+		this.cutter = "Axe";
+	}
+	
 	public double getDamage() {
+		
 		return damage;
 		
 	}
 	
 	public void setDamage(double damage) {
+		
 		this.damage = damage;
 	}
 	
 	public String getCutter() {
+		
 		return cutter;
 	}
 	
 	public void setCutter(String cutter) {
+		
 		this.cutter = cutter;
 	}
 	
-	// players can upgrade their cutting tool.
+	/* players can upgrade their cutting tool.
 	public void upgradeCutter() {
 		
 		// upgrade axe to chainsaw.
@@ -60,22 +70,6 @@ public class TreeCutter {
 			System.out.println("Not enough points to upgrade or already upgraded to highest tool");
 		}
 		
-	}
+	} */
 	
-	// earn points method
-	public void earnPoints(int pointsEarned) {
-		
-		points += pointsEarned;
-		
-		System.out.println("Earned points: " + pointsEarned + " points. Total points: " + points);
-		
-		
-	}
-	
-	public int getPoints() {
-		
-	    return points;
-	}
-
-
 }
