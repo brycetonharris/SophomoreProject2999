@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,8 +15,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import treerespawn.TreeRespawnSystem;
@@ -27,6 +31,8 @@ public class Controller {
 	private Stage stage;
 	private Parent root;
     
+	private static Controller instance;
+	
     @FXML
     private ImageView backgroundImageView;  // New ImageView for the background
 
@@ -53,12 +59,24 @@ public class Controller {
     
     @FXML
     private Label energyDrinkLabel;
+    
+    @FXML
+    private ImageView luckyCloverImageView;
+
+    @FXML
+    private ImageView autoLJackImageView;
+
+    @FXML
+    private ImageView energyDrinkImageView;
+
    
     private TreeRespawnSystem treeRespawnSystem = new TreeRespawnSystem();
     private TreeCutter treeCutter = new TreeCutter(1.0, "Axe"); // Manages points & tools
 
     @FXML
     public void initialize() {
+    	
+    	instance = this;
         // Set up background (only once)
     	if (backgroundImageView != null) { 
     		
@@ -79,6 +97,14 @@ public class Controller {
             
             updateTreeImage();
         }
+        
+        setHoverMessage(luckyCloverImageView, "Lucky Clover: Adds a chance to earn bonus points.");
+        setHoverMessage(autoLJackImageView, "Auto Lumberjack: Automatically chops trees for you.");
+        setHoverMessage(energyDrinkImageView, "Energy Drink: Boosts your points per chop for a limited time.");
+    }
+    
+    public static Controller getInstance() {
+        return instance;
     }
 
 
@@ -111,10 +137,21 @@ public class Controller {
             luckyCloverLabel.setText("Lucky Clover: " + Player.getInstance().getLuckyCloverCount());
         }
         if (autoLJackLabel != null) {
-            autoLJackLabel.setText("Auto Lumberjack: " + Player.getInstance().getAutoLJackCount());
+            autoLJackLabel.setText("Auto LJack: " + Player.getInstance().getAutoLJackCount());
         }
         if (energyDrinkLabel != null) {
             energyDrinkLabel.setText("Energy Drink: " + Player.getInstance().getEnergyDrinkCount());
+        }
+    }    
+    
+    public void setHoverMessage(ImageView imageView, String message) {
+    	
+    	if (imageView != null) {
+            // Set the tooltip directly
+            Tooltip tooltip = new Tooltip(message);
+            Tooltip.install(imageView, tooltip);
+        } else {
+            System.out.println("ImageView is null!");
         }
     }
 
@@ -136,6 +173,7 @@ public class Controller {
     	if (Player.getInstance().getPoints() >= 6) {
     		Player.getInstance().earnPoints(-6);
     		Player.getInstance().addAutoLJackCount();
+    		Player.getInstance().addLumberjack();
     		updatePointsDisplay();
     		updateItemCount();
     	} else {

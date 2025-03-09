@@ -1,14 +1,15 @@
+/*Save class in case needed
 package treestore;
-
-public class TreeStore {	
+ 
+    public class TreeStore {	 
 	
 	private String name;
 	
 	private String type;
 	
-	private int price;
+	private String description;
 	
-	
+	private int price;	
 	
 	public TreeStore(String name, int price, String type) {
 		
@@ -28,10 +29,14 @@ public class TreeStore {
 		
 		return type;
 	}
+    
+    public String getDescription() {
+		return description;
+	}
 	
 	public int getPrice() {
 		
 		return price;
-	}
-	
+	}	
 }
+*/

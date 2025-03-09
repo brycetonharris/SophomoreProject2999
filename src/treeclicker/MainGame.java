@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import treeplayer.Player;
+
 import java.net.URL;
 
 public class MainGame extends Application{	
@@ -45,6 +47,14 @@ public class MainGame extends Application{
 	        } catch (Exception e) {
 	        	e.printStackTrace(); // Handle any loading errors
 	        }
+	    }
+	 
+    @Override
+	public void stop() throws Exception {
+	        // Stop the timer when the application is closing.
+	        Player.getInstance().stopLumberjackTimer();
+	        System.out.println("Application is stopping. Timer stopped.");
+	        super.stop();
 	    }
 
 	public static void main(String[] args) {

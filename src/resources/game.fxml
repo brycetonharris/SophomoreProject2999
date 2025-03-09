@@ -27,8 +27,23 @@
             <Image url="@tree.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="luckyCloverImageView" fitHeight="50.0" fitWidth="50.0" layoutX="170.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+           <Image url="@clover_transparent.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="autoLJackImageView" fitHeight="50.0" fitWidth="50.0" layoutX="170.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@autoclickerljack.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="energyDrinkImageView" fitHeight="50.0" fitWidth="50.0" layoutX="170.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@energy drink.png" />
+         </image>
+      </ImageView>
       <Label fx:id="pointsLabel" layoutX="46.0" layoutY="57.0" prefHeight="18.0" prefWidth="135.0" text="POINTS: 0" />
-      <VBox layoutX="236.0" prefHeight="200.0" prefWidth="100.0" spacing="60.0">
+      <VBox layoutX="236.0" prefHeight="200.0" prefWidth="135.0" spacing="60.0">
          <children>
             <Label fx:id="luckyCloverLabel" minWidth="100.0" text="Lucky Clovers: 0" VBox.vgrow="NEVER" />
             <Label fx:id="autoLJackLabel" minWidth="100.0" text="Auto LJacks: 0" VBox.vgrow="NEVER" />
