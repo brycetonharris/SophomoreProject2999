@@ -41,15 +41,15 @@
       </Label>
       <HBox layoutY="158.0" maxHeight="33.0" minHeight="30.0" prefHeight="32.0" prefWidth="600.0" spacing="240.0">
          <children>
-            <Label alignment="CENTER" minWidth="44.0" prefHeight="22.0" prefWidth="64.0" text="50 pts">
+            <Label alignment="CENTER" minWidth="44.0" prefHeight="22.0" prefWidth="64.0" text="5 pts">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <Label minWidth="45.0" prefHeight="22.0" prefWidth="51.0" text="60 pts">
+            <Label minWidth="45.0" prefHeight="22.0" prefWidth="51.0" text="6 pts">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <Label minWidth="45.0" prefHeight="25.0" prefWidth="54.0" text="70 pts">
+            <Label minWidth="45.0" prefHeight="25.0" prefWidth="54.0" text="7 pts">
                <font>
                   <Font size="15.0" />
                </font></Label>
