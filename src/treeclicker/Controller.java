@@ -134,13 +134,22 @@ public class Controller {
         setHoverMessage(autoLJackImageView, "Auto Lumberjack: Automatically chops trees for you.");
         setHoverMessage(energyDrinkImageView, "Energy Drink: Boosts your points per chop for a limited time.");
     }
+	public void BackGroundChangeClear() {
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/treeclickerbg.png"));
+    	backgroundImageView.setImage(backgroundImage);
+    }
+	public void BackGroundChangeSunny() {
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/sunny.jpg"));
+    	backgroundImageView.setImage(backgroundImage);
+    }
+    
 	public void BackGroundChangeSnow() {
     	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/snow.png"));
     	backgroundImageView.setImage(backgroundImage);
     }
     
     public void BackGroundChangeRain() {
-    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/rain.png"));
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/rain.gif"));
     	backgroundImageView.setImage(backgroundImage);
     }
     
