@@ -1,13 +1,13 @@
-package treeweathertimer;
+package treeweathertimer; 
 
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+/*
 public class TreeWeatherTime {
 	
-	/* 
-	 * 
-	 * Temporarily commented out the game timer/weather logic from the main class 
-	 * to prevent ongoing bugs. Suggest refactoring this into dedicated classes for
-	 * better separation of concerns
-	 * //timer 
+	 //timer 
             Timer timer = new Timer();
 	        TimerTask task = new TimerTask() {
 	        	int Sec = 0;
@@ -60,6 +60,6 @@ public class TreeWeatherTime {
 	        //Timer for the Game
 	        timer.scheduleAtFixedRate(task, 0, 1000);
 	        //Timer event for the weather
-	        timer.scheduleAtFixedRate(WeatherTime, 0, 150000); */
+	        timer.scheduleAtFixedRate(WeatherTime, 0, 150000); 
 
-}
+} */

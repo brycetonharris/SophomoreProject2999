@@ -9,11 +9,7 @@ import javafx.stage.Stage;
 import treeplayer.Player;
 
 import java.net.URL;
-/*
-import java.util.Timer;
-import java.util.TimerTask;
-import weather.Weather;
-*/
+
 public class MainGame extends Application{	
 		
 	 public void start(Stage primaryStage) {    	

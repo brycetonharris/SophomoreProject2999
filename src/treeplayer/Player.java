@@ -112,7 +112,7 @@ public class Player {
 			
 			points += pointsEarned;
 			
-			System.out.println("Earned points: " + pointsEarned + " points. Total points: " + points);			
+			System.out.println("Earned wood: " + pointsEarned + " points. Total wood: " + points);			
 			
 	}
 		
