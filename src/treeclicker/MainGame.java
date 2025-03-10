@@ -40,7 +40,7 @@ public class MainGame extends Application{
             } else {
             	
                 System.out.println("Image not found!");
-            }		
+            }
 		
             //primaryStage.setFullScreen(true);
 
