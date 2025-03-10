@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,6 +25,7 @@ import javafx.util.Duration;
 import treerespawn.TreeRespawnSystem;
 import treecutter.TreeCutter;
 import treeplayer.Player;
+import treeAchievements.achievements;
 
 public class Controller {
 	
@@ -52,6 +54,9 @@ public class Controller {
     private Button upgradeButton;
     
     @FXML
+    private Button achievmentsButton;
+    
+    @FXML
     private Label luckyCloverLabel;
     
     @FXML
@@ -68,8 +73,35 @@ public class Controller {
 
     @FXML
     private ImageView energyDrinkImageView;
+    
+    @FXML
+    private ProgressBar PB1;
+    
+    @FXML
+    private ProgressBar PB2;
+    
+    @FXML
+    private ProgressBar PB3;
+    
+    @FXML
+    private ProgressBar PB4;
+    
+    @FXML
+    private Label lblW1;
 
-   
+    @FXML
+    private Label lblW2;
+    
+    @FXML
+    private Label lblW3;
+    
+    @FXML
+    private Label lblLJ;
+    
+    @FXML
+    private Button btnBack;
+    
+
     private TreeRespawnSystem treeRespawnSystem = new TreeRespawnSystem();
     private TreeCutter treeCutter = new TreeCutter(1.0, "Axe"); // Manages points & tools
 
@@ -238,6 +270,36 @@ public class Controller {
 		
 	}
     
+    @FXML
+    public void switchtoAchievements(ActionEvent event) throws IOException {
+    	
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/achievements.fxml"));
+	    root = loader.load();
+	    Controller newController = loader.getController();
+	    newController.achievementUpdate();
+	    
+	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+	    scene = new Scene(root);   
+	    
+	    
+	    stage.setScene(scene);
+	    stage.show();
+	}
+    
+    public void achievementUpdate() {
+	    achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount());
+	    achvmt.checkAchievements();
+	    PB1.setProgress(achvmt.progressBarLJ());    
+	    PB2.setProgress(achvmt.progressBarW1());
+	    PB3.setProgress(achvmt.progressBarW2());
+	    PB4.setProgress(achvmt.progressBarW3());
+	    
+	    lblLJ.setText(achvmt.NumLJ() + " Lumberjacks");
+	    lblW1.setText(achvmt.NumW1() + " Oak Wood");
+	    //lblW2.setText(achvmt.NumW2() + " Wood");
+	    //lblW3.setText(achvmt.NumW3() + " Wood");
+	    
+    }
 
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"
@@ -298,4 +360,7 @@ public class Controller {
         treeRespawnSystem.respawnTree();
         updateTreeImage(); // Update image after respawning the tree
     }
+
 }
+	
+
