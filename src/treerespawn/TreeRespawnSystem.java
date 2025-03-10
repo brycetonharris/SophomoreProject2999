@@ -1,4 +1,5 @@
 package treerespawn;
+import java.lang.Math;
 
 public class TreeRespawnSystem {
 	
@@ -56,9 +57,19 @@ public class TreeRespawnSystem {
 	            e.printStackTrace(); // Print the stack trace for debugging.
 	        }
 
-	        currentState = full;
-	        
-	        health = 7; // Reset health.
+	        if(Math.random()<0.1) {
+	        	double rand = Math.random();
+	        	if(rand<0.1) {
+	        		currentState = "gold";
+	        		System.out.println("A gold tree is growing!");
+	        	} else if(rand<0.4) {
+	        		currentState = "kauri";
+	        		System.out.println("A kauri tree is growing!");
+	        	} else {
+	        		currentState = "cherry";
+	        		System.out.println("A cherry tree is growing!");
+	        	}
+	        }
 	        
 	        System.out.println("The tree has regrown!");
 	        
