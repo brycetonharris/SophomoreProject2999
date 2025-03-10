@@ -89,10 +89,12 @@ public class MainGame extends Application{
 						}else if(Weather[randomNumber] == 3){
 							 WeatherState = "Rain";
 							 W.rainOn();
+							controller.BackGroundChangeRain();
 							 
 						}else {
 							 WeatherState = "Snow";
 							 W.SnowOn(); 
+							controller.BackGroundChangeSnow();
 						}
 					}
 		        	
