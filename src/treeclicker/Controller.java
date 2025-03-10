@@ -127,7 +127,7 @@ public class Controller {
     	
         if (pointsLabel != null) {
         	
-        	pointsLabel.setText("Points: " + Player.getInstance().getPoints());
+        	pointsLabel.setText("Wood: " + Player.getInstance().getPoints());
         } else {
         	System.out.println("pointsLabel is null!");
         }
