@@ -1,4 +1,4 @@
-package treeweathertimer;
+/*package treeweathertimer;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -98,5 +98,5 @@ public class TreeWeatherTimer {
 		tree.setDamage(tree.getDamage()/1.5);
 		
 	}
-}
+}*/
 	

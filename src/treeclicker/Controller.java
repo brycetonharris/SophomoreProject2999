@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,7 +17,6 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import treerespawn.TreeRespawnSystem;
@@ -353,6 +350,8 @@ public class Controller {
             // Set the stump image
             Image stumpImage = new Image(getClass().getResourceAsStream("/resources/treestump.png"));
             treeImageView.setImage(stumpImage);
+        }
+            /*
             
         } else if(treeRespawnSystem.getCurrentState().equals("cherry")) {
         	Image fullTreeImage = new Image(getClass().getResourceAsStream("/resources/cherrytree.png"));
@@ -360,7 +359,7 @@ public class Controller {
         	Image fullTreeImage = new Image(getClass().getResourceAsStream("/resources/kauritree.png"));
         } else if(treeRespawnSystem.getCurrentState().equals("gold")) {
         	Image fullTreeImage = new Image(getClass().getResourceAsStream("/resources/goldtree.png"));
-        }
+        }*/
     }
 
     // Method to respawn the tree
