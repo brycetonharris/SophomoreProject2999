@@ -75,8 +75,7 @@ public class Player {
 	        lumberjackTimer.cancel();
 	        lumberjackTimer = null;
 	    }
-	}
-	
+	}	
 	    
 	public int getLuckyCloverCount() {
 		

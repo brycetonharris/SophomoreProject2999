@@ -180,8 +180,7 @@ public class Controller {
     @FXML 
     private void handleAutoLJackButtonClick() {
     	if (Player.getInstance().getPoints() >= 6) {
-    		Player.getInstance().earnPoints(-6);
-    		Player.getInstance().addAutoLJackCount();
+    		Player.getInstance().earnPoints(-6);    		
     		Player.getInstance().addLumberjack();
     		updatePointsDisplay();
     		updateItemCount();
