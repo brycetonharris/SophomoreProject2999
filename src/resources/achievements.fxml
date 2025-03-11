@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
+   <children>      
+      <ImageView fx:id="backgroundImageView" fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@treeclickerbg.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="39.0" layoutY="133.0" prefHeight="424.0" prefWidth="504.0" spacing="5.0">
+         <children>
+            <Label fx:id="lblLJ" prefHeight="53.0" prefWidth="504.0" text="10 LumberJacks" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font></Label>
+            <ProgressBar fx:id="PB1" prefHeight="36.0" prefWidth="501.0" progress="0.001" />
+            <Label fx:id="lblW1" prefHeight="53.0" prefWidth="589.0" text="10 Oak Wood" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font></Label>
+            <ProgressBar fx:id="PB2" prefHeight="36.0" prefWidth="505.0" progress="0.001" />
+            <Label fx:id="lblW3" prefHeight="53.0" prefWidth="575.0" text="10 Undiscoverd Wood" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font></Label>
+            <ProgressBar fx:id="PB3" prefHeight="36.0" prefWidth="505.0" progress="0.001" />
+            <Label fx:id="lblW4" prefHeight="53.0" prefWidth="550.0" text="10 Undiscovered Wood" textAlignment="CENTER">
+               <font>
+                  <Font size="36.0" />
+               </font></Label>
+            <ProgressBar fx:id="PB4" prefHeight="36.0" prefWidth="499.0" progress="0.001" />
+         </children>
+      </VBox>
+      <Label layoutX="150.0" layoutY="29.0" prefHeight="70.0" prefWidth="301.0" text="Achievements">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Button id="btnBack" layoutX="231.0" layoutY="532.0" mnemonicParsing="false" text="BACK"  onAction="#switchtoGame"/>
+   </children>
+</AnchorPane>

@@ -12,7 +12,8 @@ public class Player {
 	
 	private static Player instance;
 	
-	private double points = 0.0;	
+	private double points = 0.0;
+	private double totalPoints = 0.0;
 	private int luckyCloverCount = 0;
     private int autoLJackCount = 0;
     private int energyDrinkCount = 0;
@@ -110,10 +111,16 @@ public class Player {
 	public void earnPoints(double pointsEarned) {
 			
 			points += pointsEarned;
+			totalPoints += pointsEarned;
 			
 			System.out.println("Earned wood: " + pointsEarned + " points. Total wood: " + points);			
 			
 	}
+	
+	public double getTotalPoints() {
+		
+	    return totalPoints;
+}
 		
 	public double getPoints() {
 			
