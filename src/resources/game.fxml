@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -11,49 +9,75 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="1033.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
    <children>      
-      <ImageView fx:id="backgroundImageView" fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="backgroundImageView" fitHeight="627.0" fitWidth="1040.0" layoutX="-2.0" pickOnBounds="true" AnchorPane.bottomAnchor="373.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@treeclickerbg.png" />
          </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </ImageView>
-      <Button layoutX="46.0" layoutY="316.0" mnemonicParsing="false" onAction="#Chop" opacity="0.5" text="CHOP" />
-      <Button layoutX="462.0" layoutY="54.0" mnemonicParsing="false" text="MAIN MENU" />
-      <Button layoutX="466.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchtoStore" text="UPGRADES" />
-      <ImageView fx:id="axeImage" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="385.0" layoutY="450.0" mnemonicParsing="false" onAction="#Chop" opacity="0.5" text="CHOP" />
+      <Button layoutX="835.0" layoutY="447.0" mnemonicParsing="false" text="MAIN MENU">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Button>
+      <Button layoutX="832.0" layoutY="550.0" mnemonicParsing="false" onAction="#switchtoStore" text="UPGRADES">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Button>
+      <ImageView fx:id="axeImage" fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@axe.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="treeImageView" fitHeight="261.0" fitWidth="273.0" layoutX="166.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="treeImageView" fitHeight="298.0" fitWidth="327.0" layoutX="502.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="502.0" AnchorPane.rightAnchor="233.0" AnchorPane.topAnchor="336.0">
          <image>
             <Image url="@tree.png" />
          </image>
+         <viewport>
+            <Rectangle2D height="1000.0" width="1000.0" />
+         </viewport>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </ImageView>
-      <ImageView fx:id="luckyCloverImageView" fitHeight="50.0" fitWidth="50.0" layoutX="170.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="luckyCloverImageView" fitHeight="78.0" fitWidth="85.0" layoutX="552.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
          <image>
            <Image url="@clover_transparent.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="autoLJackImageView" fitHeight="50.0" fitWidth="50.0" layoutX="170.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="autoLJackImageView" fitHeight="59.0" fitWidth="63.0" layoutX="385.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@autoclickerljack.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="energyDrinkImageView" fitHeight="50.0" fitWidth="50.0" layoutX="170.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="energyDrinkImageView" fitHeight="71.0" fitWidth="69.0" layoutX="747.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@energy drink.png" />
          </image>
       </ImageView>
-      <Label fx:id="pointsLabel" layoutX="46.0" layoutY="57.0" prefHeight="18.0" prefWidth="135.0" text="POINTS: 0" />
-      <VBox layoutX="236.0" prefHeight="200.0" prefWidth="135.0" spacing="60.0">
-         <children>
-            <Label fx:id="luckyCloverLabel" minWidth="100.0" text="Lucky Clovers: 0" VBox.vgrow="NEVER" />
-            <Label fx:id="autoLJackLabel" minWidth="100.0" text="Auto LJacks: 0" VBox.vgrow="NEVER" />
-            <Label fx:id="energyDrinkLabel" minWidth="100.0" text="Energy drinks: 0" VBox.vgrow="NEVER" />
-         </children>
-      </VBox>
-      <Button layoutX="466.0" layoutY="186.0" mnemonicParsing="false" onAction="#switchtoAchievements" text="ACHIEVEMENTS" />
+      <Label fx:id="pointsLabel" layoutX="419.0" layoutY="375.0" prefHeight="25.0" prefWidth="150.0" text="POINTS: 0" />
+      <VBox layoutX="194.0" prefHeight="200.0" prefWidth="135.0" spacing="60.0" />
+      <Button layoutX="827.0" layoutY="496.0" mnemonicParsing="false" onAction="#switchtoAchievements" text="ACHIEVEMENTS">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Button>
+      <Label fx:id="autoLJackLabel" layoutX="452.0" layoutY="289.0" minWidth="100.0" text="Auto LJacks: 0" />
+      <Label fx:id="energyDrinkLabel" layoutX="817.0" layoutY="285.0" minWidth="100.0" prefHeight="25.0" prefWidth="119.0" text="Energy drinks: 0" />
+      <Label fx:id="luckyCloverLabel" layoutX="638.0" layoutY="288.0" minWidth="100.0" text="Lucky Clovers: 0" />
+      <ImageView fitHeight="228.0" fitWidth="461.0" layoutX="546.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@TreeClickerTitle2%20(1).png" />
+         </image>
+      </ImageView>
    </children>
+   <cursor>
+      <Cursor fx:constant="MOVE" />
+   </cursor>
 </AnchorPane>
