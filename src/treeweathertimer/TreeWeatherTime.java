@@ -1,4 +1,4 @@
-/*package treeweathertimer;
+package treeweathertimer;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -71,7 +71,7 @@ public class TreeWeatherTimer {
 	    timer.scheduleAtFixedRate(task, 0, 1000);
 	    //Timer event for the weather
 	    //150000
-	    timer.scheduleAtFixedRate(WeatherTime, 0, 150000);
+	    timer.scheduleAtFixedRate(WeatherTime, 0, 10000);
 	}
 
 	public void  SnowOn() {
@@ -98,5 +98,5 @@ public class TreeWeatherTimer {
 		tree.setDamage(tree.getDamage()/1.5);
 		
 	}
-}*/
+}
 	
