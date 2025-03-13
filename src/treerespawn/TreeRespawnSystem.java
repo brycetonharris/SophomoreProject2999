@@ -56,7 +56,14 @@ public class TreeRespawnSystem {
 	        	
 	            e.printStackTrace(); // Print the stack trace for debugging.
 	        }
-
+	        
+	        
+	        
+	        	currentState = full;
+	        	health = 7; // Reset health.
+	        	
+	        	
+	        	
 	        if(Math.random()<0.1) {
 	        	double rand = Math.random();
 	        	if(rand<0.1) {
