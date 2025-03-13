@@ -136,12 +136,12 @@ public class Controller {
     	backgroundImageView.setImage(backgroundImage);
     }
 	public void BackGroundChangeSunny() {
-    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/sunny.jpg"));
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/sunny.gif"));
     	backgroundImageView.setImage(backgroundImage);
     }
     
 	public void BackGroundChangeSnow() {
-    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/snow.png"));
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/snow.gif"));
     	backgroundImageView.setImage(backgroundImage);
     }
     
@@ -367,7 +367,4 @@ public class Controller {
         treeRespawnSystem.respawnTree();
         updateTreeImage(); // Update image after respawning the tree
     }
-
-}
-	
 
