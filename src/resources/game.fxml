@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="1033.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
    <children>      
-      <ImageView fx:id="backgroundImageView" fitHeight="627.0" fitWidth="1040.0" layoutX="-2.0" pickOnBounds="true" AnchorPane.bottomAnchor="373.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="0.0">
+      <ImageView fx:id="backgroundImageView" fitHeight="685.0" fitWidth="1336.0" layoutX="-3.0" layoutY="-3.0" pickOnBounds="true" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="-3.0">
          <image>
             <Image url="@treeclickerbg.png" />
          </image>
@@ -35,6 +35,9 @@
          <image>
             <Image url="@axe.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
       </ImageView>
       <ImageView fx:id="treeImageView" fitHeight="298.0" fitWidth="327.0" layoutX="502.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="502.0" AnchorPane.rightAnchor="233.0" AnchorPane.topAnchor="336.0">
          <image>
