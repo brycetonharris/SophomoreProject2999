@@ -21,7 +21,7 @@ public class TreeRespawnSystem {
 	
 	public void hitTree() {
 		
-		if (currentState.equals(full)) {
+		if (!currentState.equals(stump)) {
 			
             health--; // decrement health to 0.
 
@@ -64,17 +64,20 @@ public class TreeRespawnSystem {
 	        	
 	        	
 	        	
-	        if(Math.random()<0.1) {
+	        if(Math.random()<0.05) {
 	        	double rand = Math.random();
 	        	if(rand<0.1) {
 	        		currentState = "gold";
 	        		System.out.println("A gold tree is growing!");
+	        		health = 100;
 	        	} else if(rand<0.4) {
 	        		currentState = "kauri";
 	        		System.out.println("A kauri tree is growing!");
+	        		health = 60;
 	        	} else {
 	        		currentState = "cherry";
 	        		System.out.println("A cherry tree is growing!");
+	        		health = 40;
 	        	}
 	        }
 	        
