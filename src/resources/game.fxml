@@ -8,6 +8,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
    <children>      
@@ -22,7 +27,10 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Button layoutX="385.0" layoutY="450.0" mnemonicParsing="false" onAction="#Chop" opacity="0.5" text="CHOP" />
+      <Button layoutX="395.0" layoutY="447.0" mnemonicParsing="false" onAction="#Chop" opacity="0.5" text="CHOP">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Button>
       <Button layoutX="835.0" layoutY="447.0" mnemonicParsing="false" text="MAIN MENU">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
@@ -31,7 +39,7 @@
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></Button>
-      <ImageView fx:id="axeImage" fitHeight="150.0" fitWidth="200.0" layoutX="396.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="axeImage" fitHeight="150.0" fitWidth="200.0" layoutX="409.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@axe.png" />
          </image>
@@ -50,7 +58,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="luckyCloverImageView" fitHeight="78.0" fitWidth="85.0" layoutX="552.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="luckyCloverImageView" fitHeight="78.0" fitWidth="85.0" layoutX="569.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
          <image>
            <Image url="@clover_transparent.png" />
          </image>
@@ -60,20 +68,116 @@
             <Image url="@autoclickerljack.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="energyDrinkImageView" fitHeight="71.0" fitWidth="69.0" layoutX="747.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="energyDrinkImageView" fitHeight="71.0" fitWidth="69.0" layoutX="774.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@energy drink.png" />
          </image>
       </ImageView>
-      <Label fx:id="pointsLabel" layoutX="419.0" layoutY="375.0" prefHeight="25.0" prefWidth="150.0" text="POINTS: 0" />
+      <Label fx:id="pointsLabel" layoutX="419.0" layoutY="375.0" prefHeight="25.0" prefWidth="150.0" text="POINTS: 0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9977628635346757">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill></Label>
       <VBox layoutX="194.0" prefHeight="200.0" prefWidth="135.0" spacing="60.0" />
       <Button layoutX="827.0" layoutY="496.0" mnemonicParsing="false" onAction="#switchtoAchievements" text="ACHIEVEMENTS">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></Button>
-      <Label fx:id="autoLJackLabel" layoutX="452.0" layoutY="289.0" minWidth="100.0" text="Auto LJacks: 0" />
-      <Label fx:id="energyDrinkLabel" layoutX="817.0" layoutY="285.0" minWidth="100.0" prefHeight="25.0" prefWidth="119.0" text="Energy drinks: 0" />
-      <Label fx:id="luckyCloverLabel" layoutX="638.0" layoutY="288.0" minWidth="100.0" text="Lucky Clovers: 0" />
+      <Label fx:id="autoLJackLabel" layoutX="443.0" layoutY="281.0" minWidth="100.0" prefHeight="32.0" prefWidth="142.0" text="Auto LJacks: 0">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9977628635346757">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+      <Label fx:id="energyDrinkLabel" layoutX="827.0" layoutY="285.0" minWidth="100.0" prefHeight="27.0" prefWidth="135.0" text="Energy drinks: 0">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9977628635346757">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill></Label>
+      <Label fx:id="luckyCloverLabel" layoutX="640.0" layoutY="285.0" minWidth="100.0" text="Lucky Clovers: 0">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9977628635346757">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
       <ImageView fitHeight="228.0" fitWidth="461.0" layoutX="546.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@TreeClickerTitle2%20(1).png" />
