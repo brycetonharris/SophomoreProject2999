@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import treeplayer.Player;
 import java.net.URL;
+import treeweathertimer.TreeWeatherTimer;
 
 public class MainGame extends Application{	
 		
@@ -25,7 +26,7 @@ public class MainGame extends Application{
 	        Controller controller = loader.getController();
 	        controller.onSceneReady(scene);
 
-		/*TreeWeatherTimer time = new TreeWeatherTimer(controller);*/
+		TreeWeatherTimer time = new TreeWeatherTimer(controller);
 	        
 	          
 	        URL imageURL = getClass().getResource("/resources/treeclicker logo.png");
