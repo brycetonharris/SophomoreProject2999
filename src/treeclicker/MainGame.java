@@ -7,8 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import treeplayer.Player;
-import java.net.URL;
 import treeweathertimer.TreeWeatherTimer;
+
+import java.net.URL;
 
 public class MainGame extends Application{	
 		
