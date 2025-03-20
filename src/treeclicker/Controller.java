@@ -19,10 +19,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import treeachievements.achievements;
 import treerespawn.TreeRespawnSystem;
 import treecutter.TreeCutter;
 import treeplayer.Player;
-import treeAchievements.achievements;
 
 public class Controller {
 	
