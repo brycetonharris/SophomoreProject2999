@@ -136,12 +136,12 @@ public class Controller {
     	backgroundImageView.setImage(backgroundImage);
     }
 	public void BackGroundChangeSunny() {
-    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/sunny.gif"));
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/sunny.jpg"));
     	backgroundImageView.setImage(backgroundImage);
     }
     
 	public void BackGroundChangeSnow() {
-    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/snow.gif"));
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/snow.png"));
     	backgroundImageView.setImage(backgroundImage);
     }
     
