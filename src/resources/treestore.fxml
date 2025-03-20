@@ -13,9 +13,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-color: #C4A484;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
+<AnchorPane prefHeight="714.0" prefWidth="1276.0" style="-fx-background-color: #C4A484;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
    <children>
-      <Label layoutX="222.39999389648438" opacity="0.48" prefHeight="48.0" prefWidth="155.0" style="-fx-background-color: #FFB6C1;" text=" Store " textAlignment="CENTER">
+      <Label layoutX="571.0" layoutY="14.0" opacity="0.48" prefHeight="89.0" prefWidth="191.0" style="-fx-background-color: #FFB6C1;" text=" Store " textAlignment="CENTER">
          <font>
             <Font size="50.0" />
          </font>
@@ -39,9 +39,9 @@
             <Reflection bottomOpacity="0.06" fraction="0.84" topOpacity="0.54" />
          </effect>
       </Label>
-      <HBox layoutY="158.0" maxHeight="33.0" minHeight="30.0" prefHeight="32.0" prefWidth="600.0" spacing="240.0">
+      <HBox layoutX="359.0" layoutY="150.0" maxHeight="33.0" minHeight="30.0" prefHeight="32.0" prefWidth="600.0" spacing="240.0">
          <children>
-            <Label alignment="CENTER" minWidth="44.0" prefHeight="22.0" prefWidth="64.0" text="5 pts">
+            <Label alignment="CENTER" minWidth="44.0" prefHeight="39.0" prefWidth="70.0" text="5 pts">
                <font>
                   <Font size="15.0" />
                </font></Label>
@@ -55,19 +55,19 @@
                </font></Label>
          </children>
       </HBox>
-      <HBox layoutY="239.0" maxHeight="331.0" minHeight="47.0" prefHeight="53.0" prefWidth="600.0" spacing="190.0">
+      <HBox layoutX="347.0" layoutY="214.0" maxHeight="331.0" minHeight="47.0" prefHeight="81.0" prefWidth="658.0" spacing="190.0">
          <children>
-            <ImageView fx:id="luckyCloverImageView" fitHeight="56.0" fitWidth="71.0" HBox.hgrow="NEVER">
+            <ImageView fx:id="luckyCloverImageView" fitHeight="83.0" fitWidth="93.0" HBox.hgrow="NEVER">
                <image>
                   <Image url="@clover_transparent.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="autoLJackImageView" fitHeight="50.0" fitWidth="61.0" HBox.hgrow="NEVER">
+            <ImageView fx:id="autoLJackImageView" fitHeight="80.0" fitWidth="97.0" HBox.hgrow="NEVER">
                <image>
                   <Image url="@autoclickerljack.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="energyDrinkImageView" fitHeight="54.0" fitWidth="77.0" HBox.hgrow="NEVER">
+            <ImageView fx:id="energyDrinkImageView" fitHeight="85.0" fitWidth="99.0" HBox.hgrow="NEVER">
                <image>
                   <Image url="@energy%20drink.png" />
                </image>
@@ -77,18 +77,63 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox layoutY="196.0" maxHeight="167.0" minHeight="32.0" prefHeight="32.0" prefWidth="600.0" spacing="155.0">
+      <HBox layoutX="320.0" layoutY="182.0" maxHeight="167.0" minHeight="32.0" prefHeight="32.0" prefWidth="693.0" spacing="155.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleLuckyCloverButtonClick" prefHeight="26.0" prefWidth="140.0" text="Lucky Clover" HBox.hgrow="NEVER" />
-            <Button mnemonicParsing="false" onAction="#handleAutoLJackButtonClick" prefHeight="26.0" prefWidth="118.0" text="AutoLJack" HBox.hgrow="NEVER" />
-            <Button mnemonicParsing="false" onAction="#handleEnergyDrinkButtonClick" prefHeight="26.0" prefWidth="139.0" text="Energy drink" HBox.hgrow="NEVER" />
+            <Button mnemonicParsing="false" onAction="#handleLuckyCloverButtonClick" prefHeight="33.0" prefWidth="140.0" text="Lucky Clover" />
+            <Button mnemonicParsing="false" onAction="#handleAutoLJackButtonClick" prefHeight="38.0" prefWidth="118.0" text="AutoLJack" />
+            <Button mnemonicParsing="false" onAction="#handleEnergyDrinkButtonClick" prefHeight="39.0" prefWidth="139.0" text="Energy drink" />
          </children>
       </HBox>
-      <ImageView fx:id="lumberjackImageView" fitHeight="200.0" fitWidth="200.0" layoutX="200.0" layoutY="303.0">
+      <ImageView fx:id="lumberjackImageView" fitHeight="239.0" fitWidth="261.0" layoutX="527.0" layoutY="308.0">
          <image>
             <Image url="@storelumberjackgif.gif" />
          </image>
       </ImageView>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="532.0" maxHeight="30.0" minHeight="30.0" mnemonicParsing="false" onAction="#switchtoGame" prefHeight="25.0" prefWidth="100.0" text="Cash Out!" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="592.0" layoutY="571.0" maxHeight="50.0" minHeight="30.0" mnemonicParsing="false" onAction="#switchtoGame" prefHeight="50.0" prefWidth="129.0" text="Cash Out!" />
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="40.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="854.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="-19.0" layoutY="411.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="74.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="156.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="743.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="889.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="927.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="349.0" fitWidth="352.0" layoutX="824.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Wood.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
