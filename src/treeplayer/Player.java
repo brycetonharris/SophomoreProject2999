@@ -13,6 +13,9 @@ public class Player {
 	private static Player instance;
 	
 	private double points = 0.0;
+	private double cherryWood = 0.0;
+	private double kauriWood = 0.0;
+	private double goldenWood = 0.0;
 	private double totalPoints = 0.0;
 	private int luckyCloverCount = 0;
     private int autoLJackCount = 0;
@@ -115,6 +118,33 @@ public class Player {
 			
 			System.out.println("Earned wood: " + pointsEarned + " points. Total wood: " + points);			
 			
+	}
+	
+	public void earnCherry(double cherryEarned) {
+		cherryWood += cherryEarned;
+		totalPoints += cherryEarned;
+	}
+	
+	public void earnKauri(double kauriEarned) {
+		kauriWood += kauriEarned;
+		totalPoints += kauriEarned;
+	}
+	
+	public void earnGolden(double goldenEarned) {
+		goldenWood += goldenEarned;
+		totalPoints += goldenEarned;
+	}
+	
+	public double getCherry() {
+		return cherryWood;
+	}
+	
+	public double getKauri() {
+		return kauriWood;
+	}
+	
+	public double getGolden() {
+		return goldenWood;
 	}
 	
 	public double getTotalPoints() {
