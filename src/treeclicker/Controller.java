@@ -23,6 +23,7 @@ import treeachievements.achievements;
 import treerespawn.TreeRespawnSystem;
 import treecutter.TreeCutter;
 import treeplayer.Player;
+import FlexFile.FlexFile;
 
 public class Controller {
 	
@@ -43,6 +44,15 @@ public class Controller {
 
     @FXML    
     private Label pointsLabel;
+    
+    @FXML
+    private Label cherryLabel;
+    
+    @FXML
+    private Label kauriLabel;
+    
+    @FXML
+    private Label goldenLabel;
 
     @FXML
     private ImageView axeImage;
@@ -309,10 +319,23 @@ public class Controller {
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"
         if (!treeRespawnSystem.getCurrentState().equals("stump")) {
-        	
-            int pointsEarned = (int) treeCutter.getDamage();
-            Player.getInstance().earnPoints(pointsEarned);            
-            pointsLabel.setText("Wood: " + Player.getInstance().getPoints());
+            if(treeRespawnSystem.getCurrentState().equals("cherry")) {
+            	int pointsEarned = (int) treeCutter.getDamage();
+                Player.getInstance().earnCherry(pointsEarned);
+                cherryLabel.setText("Cherry Wood: " + Player.getInstance().getCherry());
+            } else if(treeRespawnSystem.getCurrentState().equals("kauri")) {
+            	int pointsEarned = (int) treeCutter.getDamage();
+                Player.getInstance().earnKauri(pointsEarned);
+                kauriLabel.setText("Kauri Wood: " + Player.getInstance().getKauri());
+            } else if(treeRespawnSystem.getCurrentState().equals("golden")) {
+            	int pointsEarned = (int) treeCutter.getDamage();
+                Player.getInstance().earnGolden(pointsEarned);
+                goldenLabel.setText("Golden Wood: " + Player.getInstance().getGolden());
+            } else {
+            	int pointsEarned = (int) treeCutter.getDamage();
+            	Player.getInstance().earnPoints(pointsEarned);
+            	pointsLabel.setText("POINTS: " + Player.getInstance().getPoints());
+            }
 
             // Process the tree hit
             treeRespawnSystem.hitTree();
