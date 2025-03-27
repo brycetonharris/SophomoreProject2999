@@ -230,10 +230,14 @@ public class Controller {
     @FXML
     private void handleEnergyDrinkButtonClick() {
     	if (Player.getInstance().getPoints() >= 7) {
-    		Player.getInstance().earnPoints(-7);
-    		Player.getInstance().addEnergyDrinkCount();
-    		updatePointsDisplay();
-    		updateItemCount();
+    		if (!Player.getInstance().isEnergydrinkActive()) {
+    			Player.getInstance().earnPoints(-7);
+    			Player.getInstance().addEnergydrink();
+    			updatePointsDisplay();
+    			updateItemCount();
+    		} else {
+    			System.out.println("Energy drink is already active. No points were spent.");
+    		}    		
     	} else {
     		showNotEnoughPointsAlert();
     	}

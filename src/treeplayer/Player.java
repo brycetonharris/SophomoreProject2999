@@ -18,7 +18,7 @@ public class Player {
     private int autoLJackCount = 0;
     private int energyDrinkCount = 0;
     private Timer lumberjackTimer;
-	
+    private Timer energydrinkTimer;	
 	private TreeCutter treecutter;
 	
 	private Player() {
@@ -76,7 +76,38 @@ public class Player {
 	        lumberjackTimer.cancel();
 	        lumberjackTimer = null;
 	    }
-	}	
+	}
+	
+	public void addEnergydrink() {
+		
+		if (isEnergydrinkActive()) {
+			
+			System.out.println("Energy drink is already active! Wait until it wears off");
+			return;
+		}
+		
+		energyDrinkCount = 1;
+		System.out.println("Energy drink power-up activated for 10 seconds.");
+		
+		energydrinkTimer = new Timer();
+		energydrinkTimer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				Platform.runLater(() -> {
+					energyDrinkCount = 0;
+					System.out.println("Energy drink effect ended.");
+					energydrinkTimer.cancel();
+					energydrinkTimer = null;					
+				});
+			}
+		}, 10000); //10 seconds
+		
+	}
+	
+    public boolean isEnergydrinkActive() {
+		
+        return energyDrinkCount > 0;
+    }	
 	    
 	public int getLuckyCloverCount() {
 		
@@ -101,14 +132,13 @@ public class Player {
 	public int getEnergyDrinkCount() {
 		
 		return energyDrinkCount;
-	}
-	
-	public void addEnergyDrinkCount() {
-		
-		energyDrinkCount++;
-	}
+	}	
 	    // earn points method
 	public void earnPoints(double pointsEarned) {
+		
+		if (isEnergydrinkActive()) {
+			pointsEarned *= 1.5;
+		}
 			
 			points += pointsEarned;
 			totalPoints += pointsEarned;
