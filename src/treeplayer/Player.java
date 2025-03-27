@@ -161,5 +161,15 @@ public class Player {
 			
 			return treecutter;
 	}
+	
+	public void setAutoLJackCount(int count) {
+		autoLJackCount = count;
+	}
+	public void setCloverCount(int count) {
+		luckyCloverCount = count;
+	}
+	public void setEnergyDrinkCount(int count) {
+		energyDrinkCount = count;
+	}
 
 }

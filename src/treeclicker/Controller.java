@@ -141,6 +141,21 @@ public class Controller {
         setHoverMessage(luckyCloverImageView, "Lucky Clover: Adds a chance to earn bonus points.");
         setHoverMessage(autoLJackImageView, "Auto Lumberjack: Automatically chops trees for you.");
         setHoverMessage(energyDrinkImageView, "Energy Drink: Boosts your points per chop for a limited time.");
+        
+        
+        
+        File temp = new File("src/Saves/Main.txt");
+        if(temp.exists()) {
+        	FlexFile file = new FlexFile("Main");
+        	Player player = Player.getInstance();
+        	player.earnPoints(file.getProperty("Points",Double.class));
+        	player.earnCherry(file.getProperty("Cherry",Double.class));
+        	player.earnKauri(file.getProperty("Kauri",Double.class));
+        	player.earnGolden(file.getProperty("Golden",Double.class));
+        	player.setAutoLJackCount(file.getProperty("Lumberjacks",Integer.class));
+        	player.setCloverCount(file.getProperty("Clovers",Integer.class));
+        	player.setEnergyDrinkCount(file.getProperty("Energy Drinks",Integer.class));
+        }
     }
 	public void BackGroundChangeClear() {
     	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/treeclickerbg.png"));
