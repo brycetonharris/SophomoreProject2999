@@ -1,5 +1,6 @@
 package treeclicker;
 
+import java.io.File;
 import java.io.IOException;
 
 import javafx.animation.RotateTransition;
@@ -315,6 +316,32 @@ public class Controller {
 	    //lblW3.setText(achvmt.NumW3() + " Wood");
 	    
     }
+    
+    public void Save(ActionEvent e) {
+    	File temp = new File("src/Saves/Main.txt");
+    	if(temp.exists()) {
+    		FlexFile file = new FlexFile("Main");
+    		file.printProperties();
+    		file.setProperty("Points",Player.getInstance().getPoints());
+    		file.setProperty("Cherry",Player.getInstance().getCherry());
+    		file.setProperty("Kauri",Player.getInstance().getKauri());
+    		file.setProperty("Golden",Player.getInstance().getGolden());
+    		file.setProperty("Lumberjacks",Player.getInstance().getAutoLJackCount());
+    		file.setProperty("Clovers",Player.getInstance().getLuckyCloverCount());
+    		file.setProperty("Energy Drinks",Player.getInstance().getEnergyDrinkCount());
+    		file.saveFile();
+    	} else {
+    		FlexFile file = new FlexFile("Main","Points","Cherry","Kauri","Golden","Lumberjacks","Clovers","Energy Drinks");
+    		file.setProperty("Points",Player.getInstance().getPoints());
+    		file.setProperty("Cherry",Player.getInstance().getCherry());
+    		file.setProperty("Kauri",Player.getInstance().getKauri());
+    		file.setProperty("Golden",Player.getInstance().getGolden());
+    		file.setProperty("Lumberjacks",Player.getInstance().getAutoLJackCount());
+    		file.setProperty("Clovers",Player.getInstance().getLuckyCloverCount());
+    		file.setProperty("Energy Drinks",Player.getInstance().getEnergyDrinkCount());
+    		file.saveFile();
+    	}
+    }
 
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"
@@ -393,6 +420,7 @@ public class Controller {
         treeRespawnSystem.respawnTree();
         updateTreeImage(); // Update image after respawning the tree
     }
+    
 
 }
 	
