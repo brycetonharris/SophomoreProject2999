@@ -17,6 +17,9 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import treeachievements.achievements;
@@ -28,9 +31,7 @@ public class Controller {
 	
 	private Scene scene;
 	private Stage stage;
-	private Parent root;
-    
-	private static Controller instance;
+	private Parent root;	
 	
     @FXML
     private ImageView backgroundImageView;  // New ImageView for the background
@@ -72,6 +73,18 @@ public class Controller {
     private ImageView energyDrinkImageView;
     
     @FXML
+    private HBox luckyCloverPopup;
+
+    @FXML
+    private HBox energyDrinkPopup;
+    
+    @FXML
+    private ImageView energyDrinkIcon;
+    
+    @FXML 
+    private ImageView luckyCloverIcon;
+    
+    @FXML
     private ProgressBar PB1;
     
     @FXML
@@ -104,9 +117,8 @@ public class Controller {
 
     @FXML
     public void initialize() {
-    	
-    	instance = this;
-        // Set up background (only once)
+    	  	
+    	// Set up background (only once)
     	if (backgroundImageView != null) { 
     		
             Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/treeclickerbg.png"));
@@ -129,8 +141,13 @@ public class Controller {
         
         setHoverMessage(luckyCloverImageView, "Lucky Clover: Adds a chance to earn bonus points.");
         setHoverMessage(autoLJackImageView, "Auto Lumberjack: Automatically chops trees for you.");
-        setHoverMessage(energyDrinkImageView, "Energy Drink: Boosts your points per chop for a limited time.");
-    }
+        setHoverMessage(energyDrinkImageView, "Energy Drink: Boosts your points per chop for a limited time.");    
+        
+        /*setPowerupGlow(luckyCloverIcon, Color.LIMEGREEN);
+        setPowerupGlow(energyDrinkIcon, Color.DODGERBLUE);*/
+
+    }    
+    
 	public void BackGroundChangeClear() {
     	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/treeclickerbg.png"));
     	backgroundImageView.setImage(backgroundImage);
@@ -149,16 +166,23 @@ public class Controller {
     	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/rain.gif"));
     	backgroundImageView.setImage(backgroundImage);
     }
-    
-    public static Controller getInstance() {
-        return instance;
-    }
-
 
     public void onSceneReady(Scene scene) {
     	
-        backgroundImageView.fitWidthProperty().bind(scene.widthProperty());
-        backgroundImageView.fitHeightProperty().bind(scene.heightProperty());
+        if (backgroundImageView != null) {
+        	backgroundImageView.fitWidthProperty().bind(scene.widthProperty());
+        	backgroundImageView.fitHeightProperty().bind(scene.heightProperty());
+        }
+        
+        Player.getInstance().setController(this);
+        
+        if (Player.getInstance().isEnergydrinkActive()) {
+            setPowerupGlow(energyDrinkIcon, Color.DODGERBLUE);
+        }
+
+        if (Player.getInstance().isLuckycloverActive()) {
+            setPowerupGlow(luckyCloverIcon, Color.LIMEGREEN);
+        }
     }
     
     public void updatePointsDisplay() {
@@ -200,8 +224,30 @@ public class Controller {
         } else {
             System.out.println("ImageView is null!");
         }
+    }    
+    
+    public void setPowerupGlow(ImageView icon, Color color) {
+        if (icon == null) return;
+
+        DropShadow glow = new DropShadow();
+        glow.setColor(color);
+        glow.setRadius(25);
+        glow.setSpread(0.6);
+        icon.setEffect(glow);
     }
 
+    public void removePowerupGlow(ImageView icon) {
+        if (icon == null) return;
+        icon.setEffect(null);
+    }
+    
+    public ImageView getEnergyDrinkIcon() {
+        return energyDrinkIcon;
+    }
+
+    public ImageView getLuckyCloverIcon() {
+        return luckyCloverIcon;
+    }    
     
     @FXML 
     private void handleLuckyCloverButtonClick() {
@@ -249,16 +295,18 @@ public class Controller {
 	    FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/game.fxml"));
 	    root = loader.load();
 	    
-	    Controller newController = loader.getController();
+	    Controller newController = loader.getController();	    
 	    newController.updatePointsDisplay();
 	    newController.updateItemCount();
 	    
 	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-	    scene = new Scene(root);   
+	    scene = new Scene(root); 
+	    
+	    newController.onSceneReady(scene); 
 	    
 	    stage.setScene(scene);
-	    stage.show();   
-		
+	    stage.show();   	
+	    
 	}
 	
     @FXML
@@ -267,16 +315,18 @@ public class Controller {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/resources/treestore.fxml"));
 	    root = loader.load();
 	    
-	    Controller newController = loader.getController();
+	    Controller newController = loader.getController();	    
 	    newController.updatePointsDisplay();
 	    newController.updateItemCount();
 	    
 	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	    scene = new Scene(root);   
 	    
+	    newController.onSceneReady(scene); 
+	    
 	    stage.setScene(scene);
 	    stage.show();      	
-		
+	 		
 	}
     
     @FXML

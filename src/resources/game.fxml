@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -16,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
    <children>      
-      <ImageView fx:id="backgroundImageView" fitHeight="685.0" fitWidth="1336.0" layoutX="-3.0" layoutY="-3.0" pickOnBounds="true" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="-3.0">
+      <ImageView fx:id="backgroundImageView" fitHeight="685.0" fitWidth="1336.0" layoutX="-4.0" pickOnBounds="true" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@treeclickerbg.png" />
          </image>
@@ -58,19 +59,9 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="luckyCloverImageView" fitHeight="78.0" fitWidth="85.0" layoutX="569.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-           <Image url="@clover_transparent.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="autoLJackImageView" fitHeight="59.0" fitWidth="63.0" layoutX="385.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@autoclickerljack.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="energyDrinkImageView" fitHeight="71.0" fitWidth="69.0" layoutX="774.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@energy drink.png" />
          </image>
       </ImageView>
       <Label fx:id="pointsLabel" layoutX="419.0" layoutY="375.0" prefHeight="25.0" prefWidth="150.0" text="POINTS: 0">
@@ -128,61 +119,29 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-      <Label fx:id="energyDrinkLabel" layoutX="827.0" layoutY="285.0" minWidth="100.0" prefHeight="27.0" prefWidth="135.0" text="Energy drinks: 0">
-         <font>
-            <Font name="System Bold Italic" size="19.0" />
-         </font>
-         <textFill>
-            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="0.9977628635346757">
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-               </stops>
-            </RadialGradient>
-         </textFill></Label>
-      <Label fx:id="luckyCloverLabel" layoutX="640.0" layoutY="285.0" minWidth="100.0" text="Lucky Clovers: 0">
-         <font>
-            <Font name="System Bold Italic" size="19.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="0.9977628635346757">
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill></Label>
       <ImageView fitHeight="228.0" fitWidth="461.0" layoutX="546.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@TreeClickerTitle2%20(1).png" />
          </image>
       </ImageView>
+      <HBox fx:id="energyDrinkPopup" layoutY="358.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="energyDrinkIcon" fitHeight="200.0" fitWidth="200.0">
+               <image>
+                  <Image url="@energy%20drink.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox fx:id="luckyCloverPopup" layoutX="6.0" layoutY="522.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="luckyCloverIcon" fitHeight="200.0" fitWidth="200.0">
+               <image>
+                  <Image url="@clover_transparent.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
    </children>
    <cursor>
       <Cursor fx:constant="MOVE" />
