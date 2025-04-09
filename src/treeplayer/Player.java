@@ -8,13 +8,16 @@ import javafx.scene.paint.Color;
 import treeclicker.Controller;
 
 public class Player {
-
+	private static Player instance;
+	
+	private double points = 0.0;
+	private double cherryWood = 0.0;
+	private double kauriWood = 0.0;
+	private double goldenWood = 0.0;
+	private double totalPoints = 0.0;
+	private int luckyCloverCount = 0;
     private static Player instance;
     private Controller controller;
-
-    private double points = 0.0;
-    private double totalPoints = 0.0;
-    private int luckyCloverCount = 0;
     private int autoLJackCount = 0;
     private int energyDrinkCount = 0;
 
@@ -64,6 +67,108 @@ public class Player {
     public boolean isLumberjackActive() {
         return autoLJackCount > 0;
     }
+
+	
+	public void stopLumberjackTimer() {
+		
+	    if (lumberjackTimer != null) {
+	    	
+	        lumberjackTimer.cancel();
+	        lumberjackTimer = null;
+	    }
+	}	
+	    
+	public int getLuckyCloverCount() {
+		
+		return luckyCloverCount;
+	}
+	
+	public void addLuckyClover() {
+		
+		luckyCloverCount++;
+	}
+	
+	public int getAutoLJackCount() {
+		
+		return autoLJackCount;
+	}
+	
+	public void addAutoLJackCount() {
+		
+		autoLJackCount++;
+	}
+	
+	public int getEnergyDrinkCount() {
+		
+		return energyDrinkCount;
+	}
+	
+	public void addEnergyDrinkCount() {
+		
+		energyDrinkCount++;
+	}
+	    // earn points method
+	public void earnPoints(double pointsEarned) {
+			
+			points += pointsEarned;
+			totalPoints += pointsEarned;
+			
+			System.out.println("Earned wood: " + pointsEarned + " points. Total wood: " + points);			
+			
+	}
+	
+	public void earnCherry(double cherryEarned) {
+		cherryWood += cherryEarned;
+		totalPoints += cherryEarned;
+	}
+	
+	public void earnKauri(double kauriEarned) {
+		kauriWood += kauriEarned;
+		totalPoints += kauriEarned;
+	}
+	
+	public void earnGolden(double goldenEarned) {
+		goldenWood += goldenEarned;
+		totalPoints += goldenEarned;
+	}
+	
+	public double getCherry() {
+		return cherryWood;
+	}
+	
+	public double getKauri() {
+		return kauriWood;
+	}
+	
+	public double getGolden() {
+		return goldenWood;
+	}
+	
+	public double getTotalPoints() {
+		
+	    return totalPoints;
+}
+		
+	public double getPoints() {
+			
+		    return points;
+	}
+		
+	public TreeCutter getTreeCutter() {
+			
+			return treecutter;
+	}
+	
+	public void setAutoLJackCount(int count) {
+		autoLJackCount = count;
+	}
+	public void setCloverCount(int count) {
+		luckyCloverCount = count;
+	}
+	public void setEnergyDrinkCount(int count) {
+		energyDrinkCount = count;
+	}
+
 
     public void stopLumberjackTimer() {
         if (lumberjackTimer != null) {

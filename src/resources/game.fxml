@@ -124,6 +124,91 @@
             <Image url="@TreeClickerTitle2%20(1).png" />
          </image>
       </ImageView>
+
+      <Label fx:id="cherryLabel" layoutX="51.0" layoutY="297.0" minWidth="100.0" prefHeight="32.0" prefWidth="212.0" text="Cherry Wood: 0">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9977628635346757">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="kauriLabel" layoutX="51.0" layoutY="336.0" minWidth="100.0" prefHeight="32.0" prefWidth="228.0" text="Kauri Wood: 0">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9977628635346757">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label fx:id="goldenLabel" layoutX="51.0" layoutY="374.0" minWidth="100.0" prefHeight="32.0" prefWidth="212.0" text="Golden Wood: 0">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.9977628635346757">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button layoutX="51.0" layoutY="46.0" mnemonicParsing="false" onAction="#Save" opacity="0.5" text="Save Game">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+
       <HBox fx:id="energyDrinkPopup" layoutY="358.0" prefHeight="100.0" prefWidth="200.0">
          <children>
             <ImageView fx:id="energyDrinkIcon" fitHeight="200.0" fitWidth="200.0">
@@ -142,6 +227,7 @@
             </ImageView>
          </children>
       </HBox>
+
    </children>
    <cursor>
       <Cursor fx:constant="MOVE" />

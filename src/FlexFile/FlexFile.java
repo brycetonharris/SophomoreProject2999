@@ -77,7 +77,13 @@ public class FlexFile {
 				}
 				Files.writeString(Path.of("src/Saves/"+fileName+".txt"),assembly);
 			} else {
-				
+				for(int i=0;i<properties.length;i++) {
+					assembly = assembly + properties[i]+": "+String.valueOf(values[i].getClass())+": "+String.valueOf(values[i]);
+					if(i!=properties.length-1) {
+						assembly = assembly + String.format("%n");
+					}
+				}
+				Files.writeString(Path.of("src/Saves/"+fileName+".txt"),assembly);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

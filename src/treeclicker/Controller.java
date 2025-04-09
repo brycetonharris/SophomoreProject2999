@@ -1,5 +1,6 @@
 package treeclicker;
 
+import java.io.File;
 import java.io.IOException;
 
 import javafx.animation.RotateTransition;
@@ -26,6 +27,7 @@ import treeachievements.achievements;
 import treerespawn.TreeRespawnSystem;
 import treecutter.TreeCutter;
 import treeplayer.Player;
+import FlexFile.FlexFile;
 
 public class Controller {
 	
@@ -44,6 +46,15 @@ public class Controller {
 
     @FXML    
     private Label pointsLabel;
+    
+    @FXML
+    private Label cherryLabel;
+    
+    @FXML
+    private Label kauriLabel;
+    
+    @FXML
+    private Label goldenLabel;
 
     @FXML
     private ImageView axeImage;
@@ -141,6 +152,24 @@ public class Controller {
         
         setHoverMessage(luckyCloverImageView, "Lucky Clover: Adds a chance to earn bonus points.");
         setHoverMessage(autoLJackImageView, "Auto Lumberjack: Automatically chops trees for you.");
+        setHoverMessage(energyDrinkImageView, "Energy Drink: Boosts your points per chop for a limited time.");
+        
+        
+        
+        File temp = new File("src/Saves/Main.txt");
+        if(temp.exists()) {
+        	FlexFile file = new FlexFile("Main");
+        	Player player = Player.getInstance();
+        	player.earnPoints(file.getProperty("Points",Double.class));
+        	player.earnCherry(file.getProperty("Cherry",Double.class));
+        	player.earnKauri(file.getProperty("Kauri",Double.class));
+        	player.earnGolden(file.getProperty("Golden",Double.class));
+        	player.setAutoLJackCount(file.getProperty("Lumberjacks",Integer.class));
+        	player.setCloverCount(file.getProperty("Clovers",Integer.class));
+        	player.setEnergyDrinkCount(file.getProperty("Energy Drinks",Integer.class));
+        }
+    }
+
         setHoverMessage(energyDrinkImageView, "Energy Drink: Boosts your points per chop for a limited time.");    
         
         /*setPowerupGlow(luckyCloverIcon, Color.LIMEGREEN);
@@ -148,6 +177,7 @@ public class Controller {
 
     }    
     
+
 	public void BackGroundChangeClear() {
     	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/treeclickerbg.png"));
     	backgroundImageView.setImage(backgroundImage);
@@ -359,14 +389,53 @@ public class Controller {
 	    //lblW3.setText(achvmt.NumW3() + " Wood");
 	    
     }
+    
+    public void Save(ActionEvent e) {
+    	File temp = new File("src/Saves/Main.txt");
+    	if(temp.exists()) {
+    		FlexFile file = new FlexFile("Main");
+    		file.printProperties();
+    		file.setProperty("Points",Player.getInstance().getPoints());
+    		file.setProperty("Cherry",Player.getInstance().getCherry());
+    		file.setProperty("Kauri",Player.getInstance().getKauri());
+    		file.setProperty("Golden",Player.getInstance().getGolden());
+    		file.setProperty("Lumberjacks",Player.getInstance().getAutoLJackCount());
+    		file.setProperty("Clovers",Player.getInstance().getLuckyCloverCount());
+    		file.setProperty("Energy Drinks",Player.getInstance().getEnergyDrinkCount());
+    		file.saveFile();
+    	} else {
+    		FlexFile file = new FlexFile("Main","Points","Cherry","Kauri","Golden","Lumberjacks","Clovers","Energy Drinks");
+    		file.setProperty("Points",Player.getInstance().getPoints());
+    		file.setProperty("Cherry",Player.getInstance().getCherry());
+    		file.setProperty("Kauri",Player.getInstance().getKauri());
+    		file.setProperty("Golden",Player.getInstance().getGolden());
+    		file.setProperty("Lumberjacks",Player.getInstance().getAutoLJackCount());
+    		file.setProperty("Clovers",Player.getInstance().getLuckyCloverCount());
+    		file.setProperty("Energy Drinks",Player.getInstance().getEnergyDrinkCount());
+    		file.saveFile();
+    	}
+    }
 
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"
         if (!treeRespawnSystem.getCurrentState().equals("stump")) {
-        	
-            int pointsEarned = (int) treeCutter.getDamage();
-            Player.getInstance().earnPoints(pointsEarned);            
-            pointsLabel.setText("Wood: " + Player.getInstance().getPoints());
+            if(treeRespawnSystem.getCurrentState().equals("cherry")) {
+            	int pointsEarned = (int) treeCutter.getDamage();
+                Player.getInstance().earnCherry(pointsEarned);
+                cherryLabel.setText("Cherry Wood: " + Player.getInstance().getCherry());
+            } else if(treeRespawnSystem.getCurrentState().equals("kauri")) {
+            	int pointsEarned = (int) treeCutter.getDamage();
+                Player.getInstance().earnKauri(pointsEarned);
+                kauriLabel.setText("Kauri Wood: " + Player.getInstance().getKauri());
+            } else if(treeRespawnSystem.getCurrentState().equals("golden")) {
+            	int pointsEarned = (int) treeCutter.getDamage();
+                Player.getInstance().earnGolden(pointsEarned);
+                goldenLabel.setText("Golden Wood: " + Player.getInstance().getGolden());
+            } else {
+            	int pointsEarned = (int) treeCutter.getDamage();
+            	Player.getInstance().earnPoints(pointsEarned);
+            	pointsLabel.setText("POINTS: " + Player.getInstance().getPoints());
+            }
 
             // Process the tree hit
             treeRespawnSystem.hitTree();
@@ -424,6 +493,7 @@ public class Controller {
         treeRespawnSystem.respawnTree();
         updateTreeImage(); // Update image after respawning the tree
     }
+    
 
 }
 	
