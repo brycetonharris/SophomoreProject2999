@@ -331,7 +331,7 @@ public class Controller {
 	    Controller newController = loader.getController();	    
 	    newController.updatePointsDisplay();
 	    newController.updateItemCount();
-	    
+	    TreeWeatherTimer time = new TreeWeatherTimer(newController);
 	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	    scene = new Scene(root); 
 	    
