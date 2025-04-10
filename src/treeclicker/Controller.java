@@ -418,6 +418,28 @@ public class Controller {
     		file.saveFile();
     	}
     }
+public void undoPointsEarnedWeather(String WeatherState) {
+    	if(WeatherState == "clear") {
+    		pointsEarned /= 1;
+    	}else if(WeatherState == "Sunny") {
+    		pointsEarned /= 2;
+    	}else if(WeatherState == "Rain"){
+    		pointsEarned /= .5;
+    	}else {
+    		pointsEarned /= .25;
+    	}
+    }
+    public void setPointsEarnedWeather(String WeatherState) {
+    	if(WeatherState == "clear") {
+    		pointsEarned *= 1;
+    	}else if(WeatherState == "Sunny") {
+    		pointsEarned *= 2;
+    	}else if(WeatherState == "Rain"){
+    		pointsEarned *= .5;
+    	}else {
+    		pointsEarned *= .25;
+    	}
+    }
 
     public void Chop(ActionEvent e) {
         // Only increase points if tree is still "full"
