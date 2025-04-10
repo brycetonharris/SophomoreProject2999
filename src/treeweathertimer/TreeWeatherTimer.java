@@ -1,16 +1,15 @@
 package treeweathertimer;
+package treeweathertimer;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
 import treeclicker.Controller;
-import treecutter.TreeCutter;
+
 
 
 public class TreeWeatherTimer {
 	public String WeatherState = "Clear";
 	String weather;
-	public TreeCutter tree = new TreeCutter(1, "Axe");
 	
 	public TreeWeatherTimer(Controller controller) {
 		//timer
@@ -20,13 +19,13 @@ public class TreeWeatherTimer {
 	    	int Min = 0;
 			@Override
 			public void run() {
-				//timeLabel.setText(counter + "Seconds");
 				if(Sec == 60) {
 					Sec -= 60;
 					++Min;
 				}
-					System.out.println(Min + ":" + Sec);
-					Sec++;
+				//Controller.getInstance().SetTimer(Min, Sec);
+				//System.out.println(Min + ":" + Sec);
+				Sec++;
 			}
 	    };
 	    
@@ -38,30 +37,30 @@ public class TreeWeatherTimer {
 			@Override
 			public void run() {
 				if(WeatherState == "Sunny"){
-					SunnyOff(); 
+					WeatherOff(); 
 				}else if(WeatherState == "Snow") {
-					SnowOff();
+					WeatherOff();
 				}else if(WeatherState == "Rain"){
-					rainOff();
+					WeatherOff();
 				}
 				
 				
 				int randomNumber = (int) (Math.random() * 4);
 				if(Weather[randomNumber] == 1) {
 					WeatherState = "Sunny";
-					SunnyOn();
+					WeatherOn();
 					controller.BackGroundChangeSunny();
 				}else if(Weather[randomNumber] == 2){
 					 WeatherState = "Clear";
 					 controller.BackGroundChangeClear();
 				}else if(Weather[randomNumber] == 3){
 					 WeatherState = "Rain";
-					 rainOn();
+					 WeatherOn();
 					 controller.BackGroundChangeRain();
 					 
 				}else {
 					 WeatherState = "Snow";
-					 SnowOn(); 
+					 WeatherOn(); 
 					 controller.BackGroundChangeSnow();
 				}
 			}
@@ -73,30 +72,10 @@ public class TreeWeatherTimer {
 	    //150000
 	    timer.scheduleAtFixedRate(WeatherTime, 0, 150000);
 	}
-
-	public void  SnowOn() {
-		tree.setDamage(tree.getDamage()/2);
-		
+	public void  WeatherOff() {
+		Controller.getInstance().undoPointsEarnedWeather(WeatherState);
 	}
-	public void  SnowOff() {
-		tree.setDamage(tree.getDamage()*2);
-		;
-	}
-	public void  rainOn() {
-		tree.setDamage(tree.getDamage()/4);
-		
-	}
-	public void  rainOff() {
-		tree.setDamage(tree.getDamage()*4);
-		
-	}
-	public void  SunnyOn() {
-		tree.setDamage(tree.getDamage()*1.5);
-		
-	}
-	public void  SunnyOff() {
-		tree.setDamage(tree.getDamage()/1.5);
-		
+	public void  WeatherOn() {
+		Controller.getInstance().setPointsEarnedWeather(WeatherState);
 	}
 }
-	
