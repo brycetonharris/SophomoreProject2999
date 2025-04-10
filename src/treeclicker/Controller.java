@@ -121,6 +121,9 @@ public class Controller {
     
     @FXML
     private Button btnBack;
+
+	@FXML
+	    private Label Timer;
     
 
     private TreeRespawnSystem treeRespawnSystem = new TreeRespawnSystem();
