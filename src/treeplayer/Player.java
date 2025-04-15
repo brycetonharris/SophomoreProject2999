@@ -8,24 +8,23 @@ import javafx.scene.paint.Color;
 import treeclicker.Controller;
 
 public class Player {
-	private static Player instance;
-	
-	private double points = 0.0;
-	private double cherryWood = 0.0;
-	private double kauriWood = 0.0;
-	private double goldenWood = 0.0;
-	private double totalPoints = 0.0;
-	private int luckyCloverCount = 0;
     private static Player instance;
-    private Controller controller;
+
+    private double points = 0.0;
+    private double cherryWood = 0.0;
+    private double kauriWood = 0.0;
+    private double goldenWood = 0.0;
+    private double totalPoints = 0.0;
+    private int luckyCloverCount = 0;
     private int autoLJackCount = 0;
     private int energyDrinkCount = 0;
 
     private Timer lumberjackTimer;
-    private Timer energydrinkTimer;    
+    private Timer energydrinkTimer;
     private Timer luckycloverTimer;
 
     private TreeCutter treecutter;
+    private Controller controller;
 
     private Player() {
         this.treecutter = new TreeCutter(points, "Axe");
@@ -64,117 +63,15 @@ public class Player {
         }
     }
 
-    public boolean isLumberjackActive() {
-        return autoLJackCount > 0;
-    }
-
-	
-	public void stopLumberjackTimer() {
-		
-	    if (lumberjackTimer != null) {
-	    	
-	        lumberjackTimer.cancel();
-	        lumberjackTimer = null;
-	    }
-	}	
-	    
-	public int getLuckyCloverCount() {
-		
-		return luckyCloverCount;
-	}
-	
-	public void addLuckyClover() {
-		
-		luckyCloverCount++;
-	}
-	
-	public int getAutoLJackCount() {
-		
-		return autoLJackCount;
-	}
-	
-	public void addAutoLJackCount() {
-		
-		autoLJackCount++;
-	}
-	
-	public int getEnergyDrinkCount() {
-		
-		return energyDrinkCount;
-	}
-	
-	public void addEnergyDrinkCount() {
-		
-		energyDrinkCount++;
-	}
-	    // earn points method
-	public void earnPoints(double pointsEarned) {
-			
-			points += pointsEarned;
-			totalPoints += pointsEarned;
-			
-			System.out.println("Earned wood: " + pointsEarned + " points. Total wood: " + points);			
-			
-	}
-	
-	public void earnCherry(double cherryEarned) {
-		cherryWood += cherryEarned;
-		totalPoints += cherryEarned;
-	}
-	
-	public void earnKauri(double kauriEarned) {
-		kauriWood += kauriEarned;
-		totalPoints += kauriEarned;
-	}
-	
-	public void earnGolden(double goldenEarned) {
-		goldenWood += goldenEarned;
-		totalPoints += goldenEarned;
-	}
-	
-	public double getCherry() {
-		return cherryWood;
-	}
-	
-	public double getKauri() {
-		return kauriWood;
-	}
-	
-	public double getGolden() {
-		return goldenWood;
-	}
-	
-	public double getTotalPoints() {
-		
-	    return totalPoints;
-}
-		
-	public double getPoints() {
-			
-		    return points;
-	}
-		
-	public TreeCutter getTreeCutter() {
-			
-			return treecutter;
-	}
-	
-	public void setAutoLJackCount(int count) {
-		autoLJackCount = count;
-	}
-	public void setCloverCount(int count) {
-		luckyCloverCount = count;
-	}
-	public void setEnergyDrinkCount(int count) {
-		energyDrinkCount = count;
-	}
-
-
     public void stopLumberjackTimer() {
         if (lumberjackTimer != null) {
             lumberjackTimer.cancel();
             lumberjackTimer = null;
         }
+    }
+
+    public boolean isLumberjackActive() {
+        return autoLJackCount > 0;
     }
 
     public void addEnergydrink() {
@@ -190,12 +87,7 @@ public class Player {
             @Override
             public void run() {
                 Platform.runLater(() -> {
-                    System.out.println("Timer fired for Energy Drink glow.");
-                    if (controller == null) {
-                        System.out.println("Controller is null in energy drink glow.");
-                    } else if (controller.getEnergyDrinkIcon() == null) {
-                        System.out.println("EnergyDrinkIcon is null in controller.");
-                    } else {
+                    if (controller != null && controller.getEnergyDrinkIcon() != null) {
                         System.out.println(">>> Applying glow to Energy Drink icon!");
                         controller.setPowerupGlow(controller.getEnergyDrinkIcon(), Color.DODGERBLUE);
                     }
@@ -210,7 +102,7 @@ public class Player {
                 Platform.runLater(() -> {
                     energyDrinkCount = 0;
                     System.out.println("Energy drink effect ended.");
-                    if (controller != null) {
+                    if (controller != null && controller.getEnergyDrinkIcon() != null) {
                         controller.removePowerupGlow(controller.getEnergyDrinkIcon());
                     }
                     energydrinkTimer.cancel();
@@ -237,14 +129,9 @@ public class Player {
             @Override
             public void run() {
                 Platform.runLater(() -> {
-                    System.out.println("Timer fired for Lucky Clover glow.");
-                    if (controller == null) {
-                        System.out.println("Controller is null in lucky clover glow.");
-                    } else if (controller.getLuckyCloverIcon() == null) {
-                        System.out.println("LuckyCloverIcon is null in controller.");
-                    } else {
+                    if (controller != null && controller.getLuckyCloverIcon() != null) {
                         System.out.println(">>> Applying glow to Lucky Clover icon!");
-                        controller.setPowerupGlow(controller.getLuckyCloverIcon(), Color.LIMEGREEN);
+                        controller.setPowerupGlow(controller.getLuckyCloverIcon(), Color.LIGHTGREEN);
                     }
                 });
             }
@@ -257,7 +144,7 @@ public class Player {
                 Platform.runLater(() -> {
                     luckyCloverCount = 0;
                     System.out.println("Lucky clover effect ended.");
-                    if (controller != null) {
+                    if (controller != null && controller.getLuckyCloverIcon() != null) {
                         controller.removePowerupGlow(controller.getLuckyCloverIcon());
                     }
                     luckycloverTimer.cancel();
@@ -267,9 +154,55 @@ public class Player {
         }, 10000);
     }
 
-
     public boolean isLuckycloverActive() {
         return luckyCloverCount > 0;
+    }
+
+    // Earning Points & Resources
+    public void earnPoints(double pointsEarned) {
+        points += pointsEarned;
+        totalPoints += pointsEarned;
+        System.out.println("Earned wood: " + pointsEarned + " points. Total wood: " + points);
+    }
+
+    public void earnCherry(double cherryEarned) {
+        cherryWood += cherryEarned;
+        totalPoints += cherryEarned;
+    }
+
+    public void earnKauri(double kauriEarned) {
+        kauriWood += kauriEarned;
+        totalPoints += kauriEarned;
+    }
+
+    public void earnGolden(double goldenEarned) {
+        goldenWood += goldenEarned;
+        totalPoints += goldenEarned;
+    }
+
+    // Getters
+    public double getCherry() {
+        return cherryWood;
+    }
+
+    public double getKauri() {
+        return kauriWood;
+    }
+
+    public double getGolden() {
+        return goldenWood;
+    }
+
+    public double getTotalPoints() {
+        return totalPoints;
+    }
+
+    public double getPoints() {
+        return points;
+    }
+
+    public TreeCutter getTreeCutter() {
+        return treecutter;
     }
 
     public int getLuckyCloverCount() {
@@ -284,26 +217,16 @@ public class Player {
         return energyDrinkCount;
     }
 
-    public void earnPoints(double pointsEarned) {
-        if (isEnergydrinkActive()) {
-            pointsEarned *= 1.5;
-        }
-
-        points += pointsEarned;
-        totalPoints += pointsEarned;
-
-        System.out.println("Earned wood: " + pointsEarned + " wood. Total wood: " + points);
+    // Setters for saving/restoring
+    public void setAutoLJackCount(int count) {
+        autoLJackCount = count;
     }
 
-    public double getTotalPoints() {
-        return totalPoints;
+    public void setCloverCount(int count) {
+        luckyCloverCount = count;
     }
 
-    public double getPoints() {
-        return points;
-    }
-
-    public TreeCutter getTreeCutter() {
-        return treecutter;
+    public void setEnergyDrinkCount(int count) {
+        energyDrinkCount = count;
     }
 }

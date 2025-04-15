@@ -168,14 +168,7 @@ public class Controller {
         	player.setCloverCount(file.getProperty("Clovers",Integer.class));
         	player.setEnergyDrinkCount(file.getProperty("Energy Drinks",Integer.class));
         }
-    }
-
-        setHoverMessage(energyDrinkImageView, "Energy Drink: Boosts your points per chop for a limited time.");    
-        
-        /*setPowerupGlow(luckyCloverIcon, Color.LIMEGREEN);
-        setPowerupGlow(energyDrinkIcon, Color.DODGERBLUE);*/
-
-    }    
+    }              
     
 
 	public void BackGroundChangeClear() {
@@ -282,10 +275,14 @@ public class Controller {
     @FXML 
     private void handleLuckyCloverButtonClick() {
     	if (Player.getInstance().getPoints() >= 5) {
-    		Player.getInstance().earnPoints(-5);  
-    		Player.getInstance().addLuckyClover();
-    		updatePointsDisplay();    		
-    		updateItemCount();
+    		if (!Player.getInstance().isLuckycloverActive()) {
+    			Player.getInstance().earnPoints(-5);
+    			Player.getInstance().addLuckyClover();
+    			updatePointsDisplay();
+    			updateItemCount();
+    		} else {
+    			System.out.println("Lucky clover is already active. No points were spent.");    			
+    		}    		
     	} else {
     		showNotEnoughPointsAlert();
     	}
