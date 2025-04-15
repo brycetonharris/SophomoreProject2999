@@ -28,26 +28,15 @@ public class TreeRespawnSystem {
 
             if (health <= 0) {
             	
-                currentState = stump; // change from full to stump.
+                currentState = stump; // change from full to stump.              
                 
-                System.out.println("Tree has been chopped down to a stump!");
-                
-            } else {
-            	
-                System.out.println("Tree is being cut... Health: " + health);
-            }
-        } 
-        else {
-        	
-            System.out.println("Tree is already a stump.");
-        }		
+            } 
+        }         	
 	}
 	
 	public void respawnTree() {
 		
-	    if (currentState.equals(stump)) {
-	    	
-	        System.out.println("Tree regrowing...");
+	    if (currentState.equals(stump)) {	      
 
 	        try {
 	        	

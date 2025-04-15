@@ -431,7 +431,7 @@ public class Controller {
             } else {
             	int pointsEarned = (int) treeCutter.getDamage();
             	Player.getInstance().earnPoints(pointsEarned);
-            	pointsLabel.setText("POINTS: " + Player.getInstance().getPoints());
+            	pointsLabel.setText("Wood: " + Player.getInstance().getPoints());
             }
 
             // Process the tree hit
