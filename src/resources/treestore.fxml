@@ -15,7 +15,7 @@
 
 <AnchorPane prefHeight="714.0" prefWidth="1276.0" style="-fx-background-color: #C4A484;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
    <children>
-      <Label layoutX="571.0" layoutY="14.0" opacity="0.48" prefHeight="89.0" prefWidth="191.0" style="-fx-background-color: #FFB6C1;" text=" Store " textAlignment="CENTER">
+      <Label layoutX="571.0" layoutY="14.0" opacity="0.48" prefHeight="89.0" prefWidth="191.0" style="-fx-background-color: #FFB6C1;" text="   Store " textAlignment="CENTER">
          <font>
             <Font size="50.0" />
          </font>
