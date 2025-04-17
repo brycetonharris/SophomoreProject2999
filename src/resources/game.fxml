@@ -28,11 +28,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Button layoutX="395.0" layoutY="447.0" mnemonicParsing="false" onAction="#Chop" opacity="0.5" text="CHOP">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor></Button>
-      <Button layoutX="835.0" layoutY="447.0" mnemonicParsing="false" text="MAIN MENU">
+      <Button layoutX="395.0" layoutY="447.0" mnemonicParsing="false" onAction="#Chop" text="CHOP">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></Button>
@@ -90,7 +86,7 @@
             </RadialGradient>
          </textFill></Label>
       <VBox layoutX="194.0" prefHeight="200.0" prefWidth="135.0" spacing="60.0" />
-      <Button layoutX="827.0" layoutY="496.0" mnemonicParsing="false" onAction="#switchtoAchievements" text="ACHIEVEMENTS">
+      <Button layoutX="819.0" layoutY="445.0" mnemonicParsing="false" onAction="#switchtoAchievements" text="ACHIEVEMENTS">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor></Button>
@@ -227,6 +223,11 @@
             </ImageView>
          </children>
       </HBox>
+      <ImageView fitHeight="171.0" fitWidth="185.0" layoutX="975.0" layoutY="424.0">
+         <image>
+            <Image url="@animejack.gif" />
+         </image>
+      </ImageView>
 
    </children>
    <cursor>
