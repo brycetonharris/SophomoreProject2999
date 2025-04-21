@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import treeachievements.achievements;
 import treerespawn.TreeRespawnSystem;
+import treeweathertimer.TreeWeatherTimer;
 import treecutter.TreeCutter;
 import treeplayer.Player;
 import FlexFile.FlexFile;
@@ -384,7 +385,7 @@ public class Controller {
 	}
     
     public void achievementUpdate() {
-	    achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount(), Player.getInstance().getLuckyCloverCount(), Player.getInstance().getEnergyDrinkCount());
+	    achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount(), Player.getInstance().getLuckyCloverCount(), Player.getInstance().getTotalEnergyDrinkCount());
 	    achvmt.checkAchievements();
 	    PB1.setProgress(achvmt.progressBarLJ());    
 	    PB2.setProgress(achvmt.progressBarW1());
@@ -442,7 +443,7 @@ public class Controller {
     }
 
     public void Chop(ActionEvent e) {
-    	achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount(), Player.getInstance().getLuckyCloverCount(), Player.getInstance().getEnergyDrinkCount());	
+    	achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount(), Player.getInstance().getLuckyCloverCount(), Player.getInstance().getTotalEnergyDrinkCount());	
     	achvmt.updatewood(Player.getInstance().getTotalPoints());
     	
         // Only increase points if tree is still "full"
