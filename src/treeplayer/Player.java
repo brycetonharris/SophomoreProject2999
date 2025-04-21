@@ -18,6 +18,8 @@ public class Player {
     private int luckyCloverCount = 0;
     private int autoLJackCount = 0;
     private int energyDrinkCount = 0;
+    private int totalenergyDrinksUsed = 0;
+    
 
     private Timer lumberjackTimer;
     private Timer energydrinkTimer;
@@ -79,7 +81,7 @@ public class Player {
             System.out.println("Energy drink is already active! Wait until it wears off");
             return;
         }
-
+        totalenergyDrinksUsed++;
         energyDrinkCount = 1;
         System.out.println("Energy drink power-up activated for 10 seconds.");
 
@@ -215,6 +217,9 @@ public class Player {
 
     public int getEnergyDrinkCount() {
         return energyDrinkCount;
+    }
+    public int getTotalEnergyDrinkCount() {
+        return totalenergyDrinksUsed;
     }
 
     // Setters for saving/restoring
