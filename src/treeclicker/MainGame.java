@@ -28,7 +28,7 @@ public class MainGame extends Application{
 	        controller.onSceneReady(scene);
 
 		TreeWeatherTimer time = new TreeWeatherTimer(controller);
-	        
+	        time.getWeaterState();
 	          
 	        URL imageURL = getClass().getResource("/resources/treeclicker logo.png");
 	        

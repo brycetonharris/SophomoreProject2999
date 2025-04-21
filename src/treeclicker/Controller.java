@@ -133,8 +133,9 @@ public class Controller {
     
 
     private TreeRespawnSystem treeRespawnSystem = new TreeRespawnSystem();
-    private TreeCutter treeCutter = new TreeCutter(1.0, "Axe"); // Manages points & tools
-
+    private TreeCutter treeCutter = new TreeCutter(1.0, "Axe"); // Manages points & toolssw
+    private double pointsEarned =  treeCutter.getDamage();
+    private String weather = "";
     @FXML
     public void initialize() {
     	  	
@@ -185,12 +186,12 @@ public class Controller {
     	backgroundImageView.setImage(backgroundImage);
     }
 	public void BackGroundChangeSunny() {
-    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/sunny.jpg"));
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/sunny.gif"));
     	backgroundImageView.setImage(backgroundImage);
     }
     
 	public void BackGroundChangeSnow() {
-    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/snow.png"));
+    	Image backgroundImage = new Image(getClass().getResourceAsStream("/resources/snow.gif"));
     	backgroundImageView.setImage(backgroundImage);
     }
     
@@ -334,7 +335,8 @@ public class Controller {
 	    Controller newController = loader.getController();	    
 	    newController.updatePointsDisplay();
 	    newController.updateItemCount();
-	    
+	    TreeWeatherTimer time = new TreeWeatherTimer(newController);
+	    time.getWeaterState();
 	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	    scene = new Scene(root); 
 	    
@@ -422,6 +424,23 @@ public class Controller {
     	}
     }
 
+   public void setPointsEarnedWeather(String WeatherState) {
+    	weather = WeatherState;
+    	if(WeatherState == "clear") {
+    		System.out.println(pointsEarned);
+    		pointsEarned *= 1;
+    	}else if(WeatherState == "Sunny") {
+    		System.out.println(pointsEarned);
+    		pointsEarned *= 2;
+    	}else if(WeatherState == "Rain"){
+    		System.out.println(pointsEarned);
+    		pointsEarned *= .5;
+    	}else {
+    		System.out.println(pointsEarned);
+    		pointsEarned *= .25;
+    	}
+    }
+
     public void Chop(ActionEvent e) {
     	achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount(), Player.getInstance().getLuckyCloverCount(), Player.getInstance().getEnergyDrinkCount());	
     	achvmt.updatewood(Player.getInstance().getTotalPoints());
@@ -429,21 +448,26 @@ public class Controller {
         // Only increase points if tree is still "full"
         if (!treeRespawnSystem.getCurrentState().equals("stump")) {
             if(treeRespawnSystem.getCurrentState().equals("cherry")) {
-            	int pointsEarned = (int) treeCutter.getDamage();
+            	 pointsEarned =  treeCutter.getDamage();
+            	 setPointsEarnedWeather(weather);
                 Player.getInstance().earnCherry(pointsEarned);
                 cherryLabel.setText("Cherry Wood: " + Player.getInstance().getCherry());
             } else if(treeRespawnSystem.getCurrentState().equals("kauri")) {
-            	int pointsEarned = (int) treeCutter.getDamage();
+            	 pointsEarned =  treeCutter.getDamage();
+            	 setPointsEarnedWeather(weather);
                 Player.getInstance().earnKauri(pointsEarned);
                 kauriLabel.setText("Kauri Wood: " + Player.getInstance().getKauri());
             } else if(treeRespawnSystem.getCurrentState().equals("golden")) {
-            	int pointsEarned = (int) treeCutter.getDamage();
+            	 pointsEarned =  treeCutter.getDamage();
+            	 setPointsEarnedWeather(weather);
                 Player.getInstance().earnGolden(pointsEarned);
                 goldenLabel.setText("Golden Wood: " + Player.getInstance().getGolden());
             } else {
-            	int pointsEarned = (int) treeCutter.getDamage();
+            	 pointsEarned =  treeCutter.getDamage();
+            	 System.out.println(weather);
+            	 setPointsEarnedWeather(weather);
             	Player.getInstance().earnPoints(pointsEarned);
-            	pointsLabel.setText("Wood: " + Player.getInstance().getPoints());
+            	pointsLabel.setText("POINTS: " + Player.getInstance().getPoints());
             }
 
             // Process the tree hit
@@ -452,13 +476,13 @@ public class Controller {
             // Update the tree image
             updateTreeImage();
 
-            // Rotate axe to simulate swinging
+          /*  // Rotate axe to simulate swinging
             RotateTransition rotate = new RotateTransition(Duration.seconds(0.03), axeImage);
             rotate.setByAngle(360);
             rotate.setCycleCount(1);
             rotate.setAutoReverse(true);
             rotate.play();
-
+*/
             System.out.println("Chopping tree.. Points: " + Player.getInstance().getPoints());
             
         } else if (treeRespawnSystem.getCurrentState().equals("stump")) {
