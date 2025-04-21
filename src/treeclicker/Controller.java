@@ -1,7 +1,10 @@
 package treeclicker;
 
+import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
@@ -121,6 +124,12 @@ public class Controller {
     
     @FXML
     private Button btnBack;
+    
+    //@FXML
+    //private Rectangle greyRect;
+    
+    @FXML
+    private Label lblAchvmt;
     
 
     private TreeRespawnSystem treeRespawnSystem = new TreeRespawnSystem();
@@ -373,7 +382,7 @@ public class Controller {
 	}
     
     public void achievementUpdate() {
-	    achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount());
+	    achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount(), Player.getInstance().getLuckyCloverCount(), Player.getInstance().getEnergyDrinkCount());
 	    achvmt.checkAchievements();
 	    PB1.setProgress(achvmt.progressBarLJ());    
 	    PB2.setProgress(achvmt.progressBarW1());
@@ -382,8 +391,8 @@ public class Controller {
 	    
 	    lblLJ.setText(achvmt.NumLJ() + " Lumberjacks");
 	    lblW1.setText(achvmt.NumW1() + " Oak Wood");
-	    //lblW2.setText(achvmt.NumW2() + " Wood");
-	    //lblW3.setText(achvmt.NumW3() + " Wood");
+	    lblW2.setText(achvmt.NumW2() + " Lucky Clovers");
+	    lblW3.setText(achvmt.NumW3() + " Energy Drinks Used");
 	    
     }
     
@@ -414,6 +423,9 @@ public class Controller {
     }
 
     public void Chop(ActionEvent e) {
+    	achievements achvmt = new achievements(Player.getInstance().getTotalPoints(), Player.getInstance().getAutoLJackCount(), Player.getInstance().getLuckyCloverCount(), Player.getInstance().getEnergyDrinkCount());	
+    	achvmt.updatewood(Player.getInstance().getTotalPoints());
+    	
         // Only increase points if tree is still "full"
         if (!treeRespawnSystem.getCurrentState().equals("stump")) {
             if(treeRespawnSystem.getCurrentState().equals("cherry")) {
@@ -456,6 +468,19 @@ public class Controller {
             treeRespawnSystem.respawnTree();
             updateTreeImage();
         }
+        
+      //check if an achievement was achieved during the chop
+        if (achvmt.updatewood(Player.getInstance().getTotalPoints()) == true) {
+        	lblAchvmt.setText(achvmt.achievementBoxWood());
+            //greyRect.setVisible(true);
+        	lblAchvmt.setVisible(true);
+        	Timer timer = new Timer();
+        	timer.schedule(new TimerTask() {public void run() {popupFalse();}}, 10000);}
+    }
+    
+    public void popupFalse() {
+    	//greyRect.setVisible(false);
+    	lblAchvmt.setVisible(false); 
     }
 
     private void updateTreeImage() {

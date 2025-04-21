@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +24,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="treeclicker.Controller">
    <children>      
       <ImageView fx:id="backgroundImageView" fitHeight="685.0" fitWidth="1336.0" layoutX="-4.0" pickOnBounds="true" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -228,6 +237,11 @@
             <Image url="@animejack.gif" />
          </image>
       </ImageView>
+      <Rectangle fx:id="greyRect" arcHeight="5.0" arcWidth="5.0" fill="#5b824ae0" height="79.0" layoutX="856.0" layoutY="600.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="150.0" />
+      <Label fx:id="lblAchvmt" layoutX="782.0" layoutY="223.0" prefHeight="70.0" prefWidth="372.0" text="Achievments" visible="false">
+         <font>
+            <Font name="System Bold Italic" size="48.0" />
+         </font></Label>
 
    </children>
    <cursor>
