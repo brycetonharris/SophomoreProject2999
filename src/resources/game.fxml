@@ -38,7 +38,7 @@
          </cursor></Button>
       <ImageView fx:id="axeImage" fitHeight="150.0" fitWidth="200.0" layoutX="409.0" layoutY="475.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@LumberJack.gif" />
+            <Image url="@axe.png" />
          </image>
          <cursor>
             <Cursor fx:constant="DEFAULT" />

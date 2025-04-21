@@ -1,4 +1,4 @@
-package treeAchievements;
+package treeachievements;
 
 public class achievements {
 	private double wood;
