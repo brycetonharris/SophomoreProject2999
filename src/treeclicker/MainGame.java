@@ -42,6 +42,7 @@ public class MainGame extends Application{
                 System.out.println("Image not found!");
             }
 		
+            
             //primaryStage.setFullScreen(true);
 
 	        primaryStage.setTitle("TreeClicker");
